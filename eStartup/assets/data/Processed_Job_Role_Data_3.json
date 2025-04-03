@@ -1,0 +1,52 @@
+[
+    {
+        "Role Name": "Data\nScientist",
+        "Cluster": 2,
+        "Role Relevance Score": 52.7537289987
+    },
+    {
+        "Role Name": "Software\nEngineer",
+        "Cluster": 4,
+        "Role Relevance Score": 50.0127470734
+    },
+    {
+        "Role Name": "Cybersecurity\nAnalyst",
+        "Cluster": 2,
+        "Role Relevance Score": 56.195850853
+    },
+    {
+        "Role Name": "Machine\nLearning\nEngineer",
+        "Cluster": 0,
+        "Role Relevance Score": 100.0
+    },
+    {
+        "Role Name": "Cloud\nArchitect",
+        "Cluster": 2,
+        "Role Relevance Score": 55.6723294931
+    },
+    {
+        "Role Name": "DevOps\nEngineer",
+        "Cluster": 1,
+        "Role Relevance Score": 43.4228301952
+    },
+    {
+        "Role Name": "Front-end\nDeveloper",
+        "Cluster": 1,
+        "Role Relevance Score": 37.6864715017
+    },
+    {
+        "Role Name": "UX\/UI\nDesigner",
+        "Cluster": 1,
+        "Role Relevance Score": 34.2698437942
+    },
+    {
+        "Role Name": "IT\nSupport\nSpecialist",
+        "Cluster": 3,
+        "Role Relevance Score": 30.0
+    },
+    {
+        "Role Name": "Blockchain\nDeveloper",
+        "Cluster": 2,
+        "Role Relevance Score": 65.0287224434
+    }
+]

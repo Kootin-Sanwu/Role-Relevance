@@ -1,0 +1,42 @@
+[
+    {
+        "Role Name": "Data\nScientist",
+        "Predicted Role Relevance Score": 37.1629905701
+    },
+    {
+        "Role Name": "Software\nEngineer",
+        "Predicted Role Relevance Score": 0.0
+    },
+    {
+        "Role Name": "Cybersecurity\nAnalyst",
+        "Predicted Role Relevance Score": 39.7863349915
+    },
+    {
+        "Role Name": "Machine\nLearning\nEngineer",
+        "Predicted Role Relevance Score": 100.0
+    },
+    {
+        "Role Name": "Cloud\nArchitect",
+        "Predicted Role Relevance Score": 39.9140396118
+    },
+    {
+        "Role Name": "DevOps\nEngineer",
+        "Predicted Role Relevance Score": 23.4494094849
+    },
+    {
+        "Role Name": "Front-end\nDeveloper",
+        "Predicted Role Relevance Score": 15.4302339554
+    },
+    {
+        "Role Name": "UX\/UI\nDesigner",
+        "Predicted Role Relevance Score": 10.8592624664
+    },
+    {
+        "Role Name": "IT\nSupport\nSpecialist",
+        "Predicted Role Relevance Score": 38.2053031921
+    },
+    {
+        "Role Name": "Blockchain\nDeveloper",
+        "Predicted Role Relevance Score": 52.2585449219
+    }
+]

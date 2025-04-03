@@ -1,0 +1,106 @@
+/* Ensure each section takes up the full viewport */
+.performance, .market {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;  /* Center content vertically */
+  justify-content: center;
+  padding: 0; /* Remove extra padding */
+  scroll-margin-top: 40px; /* Adjust scroll position */
+}
+
+/* Ensure each section takes up the full viewport */
+.finance, .revenue {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;  /* Center content vertically */
+  justify-content: center;
+  padding: 0; /* Remove extra padding */
+  scroll-margin-top: 40px; /* Adjust scroll position */
+  background-color: #ffffff;
+}
+
+/* Ensure containers are properly spaced */
+.metric-container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px 0;
+  margin-left: -250px;
+  margin-right: 100px;
+}
+
+/* Adjust section titles */
+.section-title {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Chart Container Styling */
+.chart-container-1 {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 1200px; /* Prevent charts from being too large */
+}
+
+/* Chart Container Styling */
+.chart-container-2 {
+  text-align: center;
+  background-color: #e3e3e3;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 1200px; /* Prevent charts from being too large */
+}
+
+/* Ensure the canvas is responsive */
+.chart-canvas {
+  max-width: 100%;
+  max-height: 70%;
+  margin-bottom: 20px;
+}
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Button Styling */
+button {
+  background-color: #cacaca;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #a7a7a7;
+  /* color: #000000; */
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* AOS Animations */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+

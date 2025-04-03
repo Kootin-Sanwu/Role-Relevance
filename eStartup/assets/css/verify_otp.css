@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Century", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #ffffff, #ffffff);
+    min-height: 100vh;
+    margin: 0;
+}
+
+.otp-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #923D41, #582728);
+    border-radius: 10px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 25px 30px 55px rgba(80, 80, 80, 0.7);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.otp-card h1 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.otp-card p {
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.otp-card-inputs {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.otp-card-inputs input {
+    width: 50px;
+    height: 60px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: border 0.3s ease, outline 0.3s ease;
+    background-color: #f3f3f3;
+    margin: 10px 0;
+}
+
+.otp-card-inputs input:focus {
+    outline: 2px solid white;
+    border-color: transparent;
+}
+
+.otp-card a {
+    color: white;
+    text-decoration: underline;
+    margin-top: 25px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.otp-card a:hover {
+    color: #f0f0f0;
+}
+
+.otp-card button {
+    background: linear-gradient(to right, #ffffff, #bebebe);
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    font-family: "Century", sans-serif;
+}
+
+.otp-card button:hover {
+    background-color: #232e3a;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.otp-card button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.otp-card button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .otp-card {
+        padding: 1.5rem;
+    }
+
+    .otp-card h1 {
+        font-size: 1.5rem;
+    }
+
+    .otp-card-inputs input {
+        width: 45px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+
+    .otp-card button {
+        padding: 10px 30px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .otp-card h1 {
+        font-size: 1.2rem;
+    }
+
+    .otp-card-inputs input {
+        width: 40px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .otp-card button {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
