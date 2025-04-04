@@ -296,12 +296,6 @@ def get_role_scores_3():
     if not org_id:
         return jsonify({"error": "Organization ID is missing"}), 401
 
-    # conn = mysql.connector.connect(
-    #     host="localhost",
-    #     user="root",
-    #     password="",
-    #     database="RoleEvaluation"
-    # )
     conn = mysql.connector.connect(
         host="127.0.0.1",
         user="root",
