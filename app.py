@@ -108,9 +108,9 @@ def get_predictions(job_roles):
 def update_role_scores(org_id, predictions):
     """Update role relevance scores in the database."""
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor()
@@ -296,10 +296,16 @@ def get_role_scores_3():
     if not org_id:
         return jsonify({"error": "Organization ID is missing"}), 401
 
+    # conn = mysql.connector.connect(
+    #     host="localhost",
+    #     user="root",
+    #     password="",
+    #     database="RoleEvaluation"
+    # )
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
