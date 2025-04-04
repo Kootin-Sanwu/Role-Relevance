@@ -9,8 +9,8 @@ from flask_cors import CORS  # ✅ Import CORS
 
 
 # Load trained model
-MODEL_PATH = r"C:\xampp\htdocs\Role-Relevance\eStartup\assets\model\best_xgb_model.pkl"
-VECTORIZER_PATH = r"C:\xampp\htdocs\Role-Relevance\eStartup\assets\model\tfidf_vectorizer.pkl"
+MODEL_PATH = r"\var\www\html\Role-Relevance\eStartup\assets\model\best_xgb_model.pkl"
+VECTORIZER_PATH = r"\var\www\html\Role-Relevance\eStartup\assets\model\tfidf_vectorizer.pkl"
 
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"Model file not found at {MODEL_PATH}")
