@@ -9,8 +9,8 @@ from flask_cors import CORS  # ✅ Import CORS
 
 
 # Load trained model
-MODEL_PATH = r"C:\xampp\htdocs\Local-Job-Role-Relevance-3\eStartup\assets\model\best_xgb_model.pkl"
-VECTORIZER_PATH = r"C:\xampp\htdocs\Local-Job-Role-Relevance-3\eStartup\assets\model\tfidf_vectorizer.pkl"
+MODEL_PATH = r"C:\xampp\htdocs\Role-Relevance\eStartup\assets\model\best_xgb_model.pkl"
+VECTORIZER_PATH = r"C:\xampp\htdocs\Role-Relevance\eStartup\assets\model\tfidf_vectorizer.pkl"
 
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"Model file not found at {MODEL_PATH}")
@@ -25,9 +25,9 @@ app = Flask(__name__)
 
 def get_organization_roles(org_id):
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor()
