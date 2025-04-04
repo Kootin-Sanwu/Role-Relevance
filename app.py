@@ -240,9 +240,9 @@ def get_role_scores_1():
         return jsonify({"error": "Organization ID is missing"}), 401
 
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
