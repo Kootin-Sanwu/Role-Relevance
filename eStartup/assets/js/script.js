@@ -38,7 +38,7 @@ async function fetchData_1() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5000/get_scores_1', {
+    const response = await fetch('http://16.171.135.218/get_scores_1', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ async function fetchData_2() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5000/get_scores_2', {
+    const response = await fetch('http://16.171.135.218/get_scores_2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ async function fetchData_3() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5000/get_scores_3', {
+    const response = await fetch('http://16.171.135.218/get_scores_3', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ async function fetchData_4() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5000/get_scores_1', {
+    const response = await fetch('http://16.171.135.218/get_scores_1', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
