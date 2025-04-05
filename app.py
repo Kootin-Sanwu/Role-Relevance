@@ -228,7 +228,7 @@ def get_cost_reduction_scores():
     return jsonify(formatted_predictions)
 
 
-@app.route('/get_scores_1', methods=['POST'])
+@app.route('/get_scores_1', methods=['GET', 'POST'])
 def get_role_scores_1():
     
     # Print all headers for debugging
@@ -260,7 +260,7 @@ def get_role_scores_1():
 
     return jsonify(role_scores)
 
-@app.route('/get_scores_2', methods=['POST'])
+@app.route('/get_scores_2', methods=['GET', 'POST'])
 def get_role_scores_2():
     """Fetch role relevance scores directly from the database."""
     org_id = get_logged_in_org_id()
@@ -289,7 +289,7 @@ def get_role_scores_2():
     return jsonify(role_scores)
 
 
-@app.route('/get_scores_3', methods=['POST'])
+@app.route('/get_scores_3', methods=['GET', 'POST'])
 def get_role_scores_3():
     """Fetch role relevance scores directly from the database."""
     org_id = get_logged_in_org_id()
