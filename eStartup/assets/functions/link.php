@@ -19,12 +19,12 @@ function generateApprovalLink($organizationEmail, $hashedPassword, $organization
     ];
 
     $token = base64_encode(json_encode($tokenData));
-    return "http://51.20.4.204/Role-Relevance/eStartup/assets/admin/approval.php?action=approve&token=$token";
+    return "http://13.53.41.87/Role-Relevance/eStartup/assets/admin/approval.php?action=approve&token=$token";
 }
 
 // Function to generate admin decline link
 function generateDeclineLink($organizationEmail)
 {
     $token = base64_encode(json_encode(["organizaiton_email" => $organizationEmail]));
-    return "http://51.20.4.204/Role-Relevance/eStartup/assets/admin/approval.php?action=decline&token=$token";
+    return "http://13.53.41.87/Role-Relevance/eStartup/assets/admin/approval.php?action=decline&token=$token";
 }

@@ -17,7 +17,7 @@ function sendPredictionRequest($endpoint, $organizationID) {
         "message" => "test request"
     ]);
 
-    $ch = curl_init("http://16.171.135.218:5000/$endpoint");
+    $ch = curl_init("http://13.53.41.87:5000/$endpoint");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);  // Send JSON data
