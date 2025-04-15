@@ -8,10 +8,10 @@ from sentence_transformers import SentenceTransformer
 from flask_cors import CORS  # ✅ Import CORS
 
 # Load trained model
-MODEL_PATH = r"/var/www/html/Role-Relevance/eStartup/assets/models/final_job_role_model.pkl"
-VECTORIZER_PATH = r"/var/www/html/Role-Relevance/eStartup/assets/models/tfidf_vectorizer.pkl"
-BERT_CONFIG_PATH = r"/var/www/html/Role-Relevance/eStartup/assets/models/bert_config.pkl"
-METRIC_PATH = r"/var/www/html/Role-Relevance/eStartup/assets/models/metric_info.pkl"
+MODEL_PATH = r"/var/www/html/Role-Relevance/eStartup/models/final_job_role_model.pkl"
+VECTORIZER_PATH = r"/var/www/html/Role-Relevance/eStartup/models/tfidf_vectorizer.pkl"
+BERT_CONFIG_PATH = r"/var/www/html/Role-Relevance/eStartup/models/bert_config.pkl"
+METRIC_PATH = r"/var/www/html/Role-Relevance/eStartup/models/metric_info.pkl"
 
 # Check if model files exist
 if not os.path.exists(MODEL_PATH):
