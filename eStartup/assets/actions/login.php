@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($message === "signing_in") {
 
-        header("Location: ../dist/metrics.html");
+        header("Location: ../dist/metrics.php");
     } else {
 
         echo "The message is: " . htmlspecialchars($message);
