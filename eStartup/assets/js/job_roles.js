@@ -24,8 +24,8 @@ document.getElementById('add-job').addEventListener('click', function() {
         </svg>
     `;
 
+    // <label for="job-title-${nextIndex}">Role Title</label> Move this down one line when needed
     jobEntry.innerHTML = `
-        <label for="job-title-${nextIndex}">Role Title</label>
         <input type="text" id="job-title-${nextIndex}" name="job_title[]" required>
         <button type="button" class="remove-button">
             ${minusIconSvg}
@@ -50,7 +50,7 @@ document.getElementById('add-job').addEventListener('click', function() {
         const initialHeight = card.offsetHeight;
 
         // Add the removing class to trigger the slideUp animation (Reverse effect)
-        // jobEntry.classList.add('removing');
+        jobEntry.classList.add('removing');
 
         // Animate the card height
         card.style.height = `${initialHeight - jobEntry.offsetHeight - 8}px`;
@@ -58,7 +58,7 @@ document.getElementById('add-job').addEventListener('click', function() {
         // Wait for the animation to finish (400ms) before removing the element
         setTimeout(() => {
             container.removeChild(jobEntry);
-        }, 100);
+        }, 200);
 
         // Ensure the job card expands when new entries are added
         setTimeout(() => {

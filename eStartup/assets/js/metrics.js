@@ -12,14 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
         buttons.forEach(button => {
             button.style.backgroundColor = '#ff8c00';
             button.style.transform = 'scale(1)';
+            button.style.boxShadow = '0px 4px 15px rgba(37, 37, 37, 0.5)';
         });
     }
+    
 
     // Function to apply hover effect
     function applyHover(button) {
         button.style.transform = 'scale(1.03)';
         button.style.backgroundColor = '#3d84ff';
-        // button.style.boxShadow = '0px 6px 20px rgba(21, 21, 21, 0.8)';
+        button.style.boxShadow = '0px 6px 20px rgba(21, 21, 21, 0.8)';
     }
 
     // Function to handle button press effect
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     buttons.forEach((button, index) => {
         button.style.opacity = "0";
         button.style.transform = "translateY(20px)";
-        button.style.transition = "opacity 0.8s ease-out, transform 0.3s ease-out";
+        button.style.transition = "opacity 0.8s ease-out, transform 0.3s ease-out, box-shadow 0.4s ease, background-color 0.4s ease";
 
         // Staggered animation effect
         setTimeout(() => {

@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $OTP_time_created = $_SESSION['OTP_timestamp'] ?? 0;
     $overdueOTP = $currentTime - $OTP_time_created;
 
-    if ($overdueOTP > 600) {
+    if ($overdueOTP > 120) {
 
         header("Location: ../views/verify_otp.php?msg=" . urlencode("OTP expired. Please try again."));
         exit();
