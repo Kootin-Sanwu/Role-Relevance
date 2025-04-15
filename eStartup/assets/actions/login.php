@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         'Organizationid: ' . $organizationID  
                     ];
 
-                    $ch = curl_init('http://localhost:5000/get_scores_1');
+                    $ch = curl_init('http://56.228.25.8:5000/get_scores_1');
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
                     curl_setopt($ch, CURLOPT_POST, true);
