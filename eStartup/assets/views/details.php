@@ -9,12 +9,9 @@
 <body>
   <div class="job-card">
     <h1>Job Roles Submission</h1>
-    <p>Enter the details of available</p>
-    <p> job roles in your organization.</p>
+    <p>Enter the details of available job roles in your organization.</p>
     <form action="../actions/details.php" method="POST" class="job-form">
       <div class="job-card-inputs">
-        <label for="org-name">Organization Name</label>
-        <input type="text" id="org-name" name="organization_name" required>
 
         <div class="job-entry">
           <label for="job-title-1">Role Title</label>
@@ -29,6 +26,7 @@
             </svg>
           </button>
         </div>
+
       </div>
 
       <button type="button" id="add-job" class="icon-button">

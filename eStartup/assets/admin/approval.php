@@ -24,6 +24,7 @@ if (isset($_GET['action']) && isset($_GET['token'])) {
         $hashedPassword = isset($data['hashed_password']) ? htmlspecialchars($data['hashed_password']) : '';
         $organizationName = isset($data['organization_name']) ? htmlspecialchars($data['organization_name']) : '';
         $jobTitles = isset($data['job_title']) ? (is_array($data['job_title']) ? $data['job_title'] : [$data['job_title']]) : [];
+        $organizationDescription = isset($data['organization_description']) ? htmlspecialchars($data['organization_description']) : '';
     }
 }
 else {
@@ -67,6 +68,9 @@ else {
                 <input type="hidden" name="organization_name" value="<?php 
                                                                             echo htmlspecialchars($organizationName); 
                                                                         ?>">
+                <input type="hidden" name="organization_description" value="<?php 
+                                                                            echo htmlspecialchars($organizationDescription); 
+                                                                        ?>">                                                                        
 
                 <?php foreach ($jobTitles as $job) : ?>
                     <input type="hidden" name="job_title[]" value="<?php echo htmlspecialchars($job); ?>">

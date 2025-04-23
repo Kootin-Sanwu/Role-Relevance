@@ -79,7 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $_SESSION['hashed_password'] = $hashedPassword;
 
-        header("Location: ../views/details.php");
+        // header("Location: ../views/details.php");
+        header("Location: ../views/subject.php");
         exit();
     } catch (PDOException $e) {
 
@@ -96,11 +97,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = $_SESSION['hashed_password'];
         $organizationName = $_SESSION['organization_name'];
         $jobTitles = $_SESSION['job_title'];
+        $organizationDescription = $_SESSION['organization_description'];
 
         try {
             // Send email to admin for approval
             $adminEmail = "kootin.nuamah@ashesi.edu.gh";
-            $adminApprovalLink = generateApprovalLink($organizationEmail, $hashedPassword, $organizationName, $jobTitles);
+            $adminApprovalLink = generateApprovalLink($organizationEmail, $hashedPassword, $organizationName, $jobTitles, $organizationDescription);
             $adminDeclineLink = generateDeclineLink($organizationEmail);
             notifyAdmin($adminEmail, $organizationEmail, $adminApprovalLink, $adminDeclineLink);
 

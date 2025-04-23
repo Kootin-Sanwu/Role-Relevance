@@ -76,6 +76,9 @@
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
   --multipurpose-color-1: rgb(0, 123, 255);
   --multipurpose-color-2: rgb(16, 85, 0);
+  --multipurpose-color-3: rgb(95, 51, 140);
+  --multipurpose-color-4: rgb(80, 48, 0);
+  --multipurpose-color-5: rgb(0, 0, 0);
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -199,6 +202,7 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+  width: 100%;
 }
 
 .header .logo {
@@ -669,6 +673,24 @@ section,
   position: relative;
 }
 
+.section-title-4 {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title-5 {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title-6 {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
 .section-title-1 h2 {
   font-size: 13px;
   letter-spacing: 1px;
@@ -711,6 +733,48 @@ section,
   font-family: var(--default-font);
 }
 
+.section-title-4 h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  margin: 0;
+  background: color-mix(in srgb, var(--multipurpose-color-3), transparent 90%);
+  color: var(--multipurpose-color-3);
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  font-family: var(--default-font);
+}
+
+.section-title-5 h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  margin: 0;
+  background: color-mix(in srgb, var(--multipurpose-color-4), transparent 90%);
+  color: var(--multipurpose-color-4);
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  font-family: var(--default-font);
+}
+
+.section-title-6 h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  margin: 0;
+  background: color-mix(in srgb, var(--multipurpose-color-5), transparent 90%);
+  color: var(--multipurpose-color-5);
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  font-family: var(--default-font);
+}
+
 .section-title-1 div {
   color: var(--heading-color);
   margin: 10px 0 0 0;
@@ -735,6 +799,30 @@ section,
   font-family: var(--heading-font);
 }
 
+.section-title-4 div {
+  color: var(--heading-color);
+  margin: 10px 0 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--heading-font);
+}
+
+.section-title-5 div {
+  color: var(--heading-color);
+  margin: 10px 0 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--heading-font);
+}
+
+.section-title-6 div {
+  color: var(--heading-color);
+  margin: 10px 0 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--heading-font);
+}
+
 .section-title-1 div .description-title {
   color: var(--accent-color);
 }
@@ -745,6 +833,18 @@ section,
 
 .section-title-3 div .description-title {
   color: var(--multipurpose-color-2);
+}
+
+.section-title-4 div .description-title {
+  color: var(--multipurpose-color-3);
+}
+
+.section-title-5 div .description-title {
+  color: var(--multipurpose-color-4);
+}
+
+.section-title-6 div .description-title {
+  color: var(--multipurpose-color-5);
 }
 
 /*--------------------------------------------------------------
@@ -1609,4 +1709,1150 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+.chart-container-1 {
+  position: relative; /* Needed for absolute child positioning */
+}
+
+.chart-container-2 {
+  position: relative; /* Needed for absolute child positioning */
+}
+
+.chart-container-3 {
+  position: relative; /* Needed for absolute child positioning */
+}
+
+.chart-container-4 {
+  position: relative; /* Needed for absolute child positioning */
+}
+
+.chart-container-5 {
+  position: relative; /* Needed for absolute child positioning */
+}
+
+.chart-container-6 {
+  position: relative; /* Needed for absolute child positioning */
+}
+
+.btn-add-role-icon-1 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #e2787d, #581e21);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-role-icon-1:hover .plus-icon {
+  transform: scale(1.3);
+}
+
+.btn-add-role-icon-1:hover {
+  background: radial-gradient(circle at 30% 30%, #c66165, #7c3235);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-role-icon-1:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-remove-role-icon-1 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #e2787d, #581e21);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-remove-role-icon-1:hover .minus-icon {
+  transform: scale(1.3);
+}
+
+.btn-remove-role-icon-1:hover {
+  background: radial-gradient(circle at 30% 30%, #c66165, #7c3235);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-remove-role-icon-1:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-reload-chart-icon-1 {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #e2787d, #581e21);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-reload-chart-icon-1:hover .reload-icon {
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-1:hover {
+  background: radial-gradient(circle at 30% 30%, #c66165, #7c3235);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-1:active {
+  transform: scale(0.80);
+}
+
+.btn-add-description-1 {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #e2787d, #581e21);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-description-1 i {
+  font-size: 24px;
+  color: white;
+}
+
+.btn-add-description-1:hover .edit-icon {
+  transform: scale(5.7);
+}
+
+.btn-add-description-1:hover {
+  background: radial-gradient(circle at 30% 30%, #c66165, #7c3235);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-description-1:active {
+  transform: scale(0.80);
+}
+
+
+.btn-add-role-icon-2 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-role-icon-2:hover .plus-icon {
+  transform: scale(1.3);
+}
+
+.btn-add-role-icon-2:hover {
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #007bff);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-role-icon-2:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-remove-role-icon-2 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-remove-role-icon-2:hover .minus-icon {
+  transform: scale(1.3);
+}
+
+.btn-remove-role-icon-2:hover {
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #007bff);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-remove-role-icon-2:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-reload-chart-icon-2 {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-reload-chart-icon-2:hover .reload-icon {
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-2:hover {
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #007bff);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-2:active {
+  transform: scale(0.80);
+}
+
+.btn-add-description-2 {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-description-2 i {
+  font-size: 24px;
+  color: white;
+}
+
+.btn-add-description-2:hover .edit-icon {
+  transform: scale(5.7);
+}
+
+.btn-add-description-2:hover {
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #007bff);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-description-2:active {
+  transform: scale(0.80);
+}
+
+
+
+
+
+
+
+.btn-add-role-icon-3 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #8fb089, #093a00);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-role-icon-3:hover .plus-icon {
+  transform: scale(1.3);
+}
+
+.btn-add-role-icon-3:hover {
+  background: radial-gradient(circle at 30% 30%, #73d173, #093a00);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-role-icon-3:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-remove-role-icon-3 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #8fb089, #093a00);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-remove-role-icon-3:hover .minus-icon {
+  transform: scale(1.3);
+}
+
+.btn-remove-role-icon-3:hover {
+  background: radial-gradient(circle at 30% 30%, #73d173, #093a00);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-remove-role-icon-3:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-reload-chart-icon-3 {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #8fb089, #093a00);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-reload-chart-icon-3:hover .reload-icon {
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-3:hover {
+  background: radial-gradient(circle at 30% 30%, #73d173, #093a00);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-3:active {
+  transform: scale(0.80);
+}
+
+.btn-add-description-3 {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #8fb089, #093a00);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-description-3 i {
+  font-size: 24px;
+  color: white;
+}
+
+.btn-add-description-3:hover .edit-icon {
+  transform: scale(5.7);
+}
+
+.btn-add-description-3:hover {
+  background: radial-gradient(circle at 30% 30%, #73d173, #093a00);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-description-3:active {
+  transform: scale(0.80);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-add-role-icon-4 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c68efd, #1e003b);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-role-icon-4:hover .plus-icon {
+  transform: scale(1.3);
+}
+
+.btn-add-role-icon-4:hover {
+  background: radial-gradient(circle at 30% 30%, #ca98fb, #1e003b);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-role-icon-4:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-remove-role-icon-4 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c68efd, #1e003b);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-remove-role-icon-4:hover .minus-icon {
+  transform: scale(1.3);
+}
+
+.btn-remove-role-icon-4:hover {
+  background: radial-gradient(circle at 30% 30%, #ca98fb, #1e003b);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-remove-role-icon-4:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-reload-chart-icon-4 {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c68efd, #1e003b);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-reload-chart-icon-4:hover .reload-icon {
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-4:hover {
+  background: radial-gradient(circle at 30% 30%, #ca98fb, #1e003b);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-4:active {
+  transform: scale(0.80);
+}
+
+.btn-add-description-4 {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c68efd, #1e003b);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-description-4 i {
+  font-size: 24px;
+  color: white;
+}
+
+.btn-add-description-4:hover .edit-icon {
+  transform: scale(5.7);
+}
+
+.btn-add-description-4:hover {
+  background: radial-gradient(circle at 30% 30%, #ca98fb, #1e003b);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-description-4:active {
+  transform: scale(0.80);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-add-role-icon-5 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c38221, #3b2300);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-role-icon-5:hover .plus-icon {
+  transform: scale(1.3);
+}
+
+.btn-add-role-icon-5:hover {
+  background: radial-gradient(circle at 30% 30%, #fdab30, #3b2300);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-role-icon-5:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-remove-role-icon-5 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c38221, #3b2300);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-remove-role-icon-5:hover .minus-icon {
+  transform: scale(1.3);
+}
+
+.btn-remove-role-icon-5:hover {
+  background: radial-gradient(circle at 30% 30%, #fdab30, #3b2300);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-remove-role-icon-5:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-reload-chart-icon-5 {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c38221, #3b2300);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-reload-chart-icon-5:hover .reload-icon {
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-5:hover {
+  background: radial-gradient(circle at 30% 30%, #fdab30, #3b2300);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-5:active {
+  transform: scale(0.80);
+}
+
+.btn-add-description-5 {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #c38221, #3b2300);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-description-5 i {
+  font-size: 24px;
+  color: white;
+}
+
+.btn-add-description-5:hover .edit-icon {
+  transform: scale(5.7);
+}
+
+.btn-add-description-5:hover {
+  background: radial-gradient(circle at 30% 30%, #fdab30, #3b2300);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-description-5:active {
+  transform: scale(0.80);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-add-role-icon-6 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #888888, #000000);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-role-icon-6:hover .plus-icon {
+  transform: scale(1.3);
+}
+
+.btn-add-role-icon-6:hover {
+  background: radial-gradient(circle at 30% 30%, #9a9a9a, #000000);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-role-icon-6:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-remove-role-icon-6 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #888888, #000000);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-remove-role-icon-6:hover .minus-icon {
+  transform: scale(1.3);
+}
+
+.btn-remove-role-icon-6:hover {
+  background: radial-gradient(circle at 30% 30%, #9a9a9a, #000000);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-remove-role-icon-6:active {
+  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
+  transform: scale(0.80);
+}
+
+.btn-reload-chart-icon-6 {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #888888, #000000);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-reload-chart-icon-6:hover .reload-icon {
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-6:hover {
+  background: radial-gradient(circle at 30% 30%, #9a9a9a, #000000);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-reload-chart-icon-6:active {
+  transform: scale(0.80);
+}
+
+.btn-add-description-6 {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #888888, #000000);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+  inset 0 4px 8px rgba(255, 255, 255, 0.2),
+  0 12px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-add-description-6 i {
+  font-size: 24px;
+  color: white;
+}
+
+.btn-add-description-6:hover .edit-icon {
+  transform: scale(5.7);
+}
+
+.btn-add-description-6:hover {
+  background: radial-gradient(circle at 30% 30%, #9a9a9a, #000000);
+  box-shadow:
+  inset 0 2px 6px rgba(255, 255, 255, 0.25),
+  0 8px 14px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+}
+
+.btn-add-description-6:active {
+  transform: scale(0.80);
+}
+
+.plus-icon {
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.minus-icon {
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.reload-icon {
+  font-size: 28px;
+  color: white;
+  text-shadow: 0 0 0px white, 0 0 1px white;
+  transition: transform 0.3s ease;
+}
+
+.close-btn {
+  padding: 20px;
+  margin-top: 10px;
+  margin-right: 15px;
+  font-size: 30px !important;
+  will-change: transform;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  align-self: center;
+  font-weight: bolder;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: white !important;
+  background-color: transparent;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ffffff;
+  transform: scale(1.5);
+}
+
+#addRoleForm input,
+#addRoleForm textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#addRoleForm button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Modal Styles */
+.modal {
+  backdrop-filter: blur(5px);
 }

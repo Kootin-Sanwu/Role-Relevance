@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  ml-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.ml
+    container_name: ml_api
+    ports:
+      - "5001:5000"
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql_db
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    container_name: frontend
+    ports:
+      - "3001:80"
+    depends_on:
+      - php-backend
+
+  php-backend:
+    image: php:8.1-apache
+    container_name: php_backend
+    volumes:
+      - ./frontend:/var/www/html
+    ports:
+      - "9000:80"
+
+volumes:
+  mysql_data:

@@ -1,40 +1,53 @@
-/* Ensure each section takes up the full viewport */
-.performance, .market {
+.performance, .revenue, .susceptible {
   min-height: 100vh;
   display: flex;
-  align-items: center;  /* Center content vertically */
+  align-items: center;
   justify-content: center;
-  padding: 0; /* Remove extra padding */
-  scroll-margin-top: 40px; /* Adjust scroll position */
+  padding: 0;
+  scroll-margin-top: 40px;
 }
 
-/* Ensure each section takes up the full viewport */
-.finance, .revenue {
+.finance, .market, .dependence {
   min-height: 100vh;
   display: flex;
-  align-items: center;  /* Center content vertically */
+  align-items: center;
   justify-content: center;
-  padding: 0; /* Remove extra padding */
-  scroll-margin-top: 40px; /* Adjust scroll position */
+  padding: 0;
+  scroll-margin-top: 40px;
   background-color: #ffffff;
 }
 
-/* Ensure containers are properly spaced */
 .metric-container {
   width: 70%;
   margin: 0 auto;
-  padding: 20px 0;
-  margin-left: -250px;
-  margin-right: 100px;
+  /* padding: 20px 0; */
+  /* margin-left: 50px; */
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  /* margin-right: 100px; */
 }
 
-/* Adjust section titles */
+.info {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+}
+
 .section-title {
   text-align: center;
   padding: 20px 0;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
 }
 
-/* Chart Container Styling */
 .chart-container-1 {
   text-align: center;
   background-color: #ffffff;
@@ -42,10 +55,10 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 25px;
   width: 100%;
-  max-width: 1200px; /* Prevent charts from being too large */
+  max-width: 2200px;
+  margin-right: 5%;
 }
 
-/* Chart Container Styling */
 .chart-container-2 {
   text-align: center;
   background-color: #e3e3e3;
@@ -53,22 +66,20 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 25px;
   width: 100%;
-  max-width: 1200px; /* Prevent charts from being too large */
+  max-width: 2200px;
+  margin-right: 5%;
 }
 
-/* Ensure the canvas is responsive */
 .chart-canvas {
   max-width: 100%;
   max-height: 70%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-/* Ensure smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Button Styling */
 button {
   background-color: #cacaca;
   color: black;
@@ -83,7 +94,6 @@ button {
 
 button:hover {
   background-color: #a7a7a7;
-  /* color: #000000; */
   box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
   transform: scale(1.03);
 }
@@ -92,7 +102,6 @@ button:active {
   transform: scale(0.97);
 }
 
-/* AOS Animations */
 [data-aos="fade-up"] {
   opacity: 0;
   transform: translateY(20px);
