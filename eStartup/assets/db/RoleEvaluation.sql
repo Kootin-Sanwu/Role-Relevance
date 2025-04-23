@@ -15,6 +15,7 @@ CREATE TABLE Organizations (
     RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+
 -- Table to store user information (for organizational users)
 CREATE TABLE Users (
     UserID INT AUTO_INCREMENT PRIMARY KEY,

@@ -8,10 +8,10 @@ from sentence_transformers import SentenceTransformer
 from flask_cors import CORS  # ✅ Import CORS
 
 # Load trained model
-MODEL_PATH = r"C:\xampp\htdocs\Local-Job-Role-Relevance-3\eStartup\models\final_job_role_model.pkl"
-VECTORIZER_PATH = r"C:\xampp\htdocs\Local-Job-Role-Relevance-3\eStartup\models\tfidf_vectorizer.pkl"
-BERT_CONFIG_PATH = r"C:\xampp\htdocs\Local-Job-Role-Relevance-3\eStartup\models\bert_config.pkl"
-METRIC_PATH = r"C:\xampp\htdocs\Local-Job-Role-Relevance-3\eStartup\models\metric_info.pkl"
+MODEL_PATH = r"/var/www/html/Role-Relevance/eStartup/models/final_job_role_model.pkl"
+VECTORIZER_PATH = r"/var/www/html/Role-Relevance/eStartup/models/tfidf_vectorizer.pkl"
+BERT_CONFIG_PATH = r"/var/www/html/Role-Relevance/eStartup/models/bert_config.pkl"
+METRIC_PATH = r"/var/www/html/Role-Relevance/eStartup/models/metric_info.pkl"
 
 # Check if model files exist
 if not os.path.exists(MODEL_PATH):
@@ -55,9 +55,9 @@ app = Flask(__name__)
 
 def get_organization_roles(org_id):
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor()
@@ -82,9 +82,9 @@ def get_organization_roles(org_id):
 
 def get_organization_description(org_id):
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor()
@@ -219,9 +219,9 @@ def get_predictions(job_roles, org_description):
 def update_role_scores(org_id, predictions):
     """Update role relevance scores in the database."""
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor()
@@ -510,9 +510,9 @@ def get_role_scores_1():
     update_role_scores(org_id, predictions)
     
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
@@ -556,9 +556,9 @@ def get_role_scores_2():
     update_role_scores(org_id, predictions)
 
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
@@ -602,9 +602,9 @@ def get_role_scores_3():
     update_role_scores(org_id, predictions)
 
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
@@ -648,9 +648,9 @@ def get_role_scores_4():
     update_role_scores(org_id, predictions)
 
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
@@ -694,9 +694,9 @@ def get_role_scores_5():
     update_role_scores(org_id, predictions)
 
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
@@ -740,9 +740,9 @@ def get_role_scores_6():
     update_role_scores(org_id, predictions)
 
     conn = mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="",
+        password="K22.Kb16.Nk28.Ny27",
         database="RoleEvaluation"
     )
     cursor = conn.cursor(dictionary=True)
@@ -761,4 +761,4 @@ def get_role_scores_6():
     return jsonify(role_scores)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
