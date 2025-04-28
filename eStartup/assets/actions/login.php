@@ -42,21 +42,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
 
         try {
-
-            $stmt = $pdo->prepare("SELECT OrganizationID, Password FROM Organizations WHERE Email = :Email");
+            // Select OrganizationID, Name, and Password from the database
+            $stmt = $pdo->prepare("SELECT OrganizationID, Name, Password FROM Organizations WHERE Email = :Email");
             $stmt->bindParam(":Email", $organizationEmail, PDO::PARAM_STR);
             $stmt->execute();
-
+        
             if ($stmt->rowCount() === 1) {
                 $row = $stmt->fetch();
-
+        
+                // Verify password
                 if (password_verify($password, $row['Password'])) {
-
+        
+                    // Store organization info in SESSION
                     $_SESSION['OrganizationID'] = $row['OrganizationID'];
                     $_SESSION['organization_email'] = $organizationEmail;
-
-                    $organizationID = $_SESSION["OrganizationID"]; // Ensure this is set
-
+                    $_SESSION['organization_name'] = $row['Name']; // Store organization name here
+        
+                    $organizationID = $_SESSION["OrganizationID"];
+        
                     if (!$organizationID) {
                         die("Error: OrganizationID is not set.");
                     }
@@ -122,6 +125,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else if (isset($_GET['msg'])) {
 
     $message = $_GET['msg'];
+
+    $organizationName = $_SESSION['organization_name'];
 
     if ($message === "signing_in") {
 

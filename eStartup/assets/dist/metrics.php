@@ -230,7 +230,7 @@ session_start();
         </button>
         
         <h2><?php echo $_SESSION['organization_name']; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h3>Performance Contribution Statistics</h3>
         
         <canvas id="Chart1" class="chart-canvas"></canvas>
       </div>
@@ -305,7 +305,7 @@ session_start();
         </button>
         
         <h2><?php echo $_SESSION['organization_name']; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h3>Cost Reduction Contribution Statistics</h3>
         
         <canvas id="Chart2" class="chart-canvas"></canvas>
       </div>
@@ -380,7 +380,7 @@ session_start();
         </button>
         
         <h2><?php echo $_SESSION['organization_name']; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h3>Revenue Generation Statistics</h3>
         
         <canvas id="Chart3" class="chart-canvas"></canvas>
       </div>
@@ -529,7 +529,7 @@ session_start();
         </button>
         
         <h2><?php echo $_SESSION['organization_name']; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h3>Role Susceptibility Statistics</h3>
         
         <canvas id="Chart5" class="chart-canvas"></canvas>
       </div>
@@ -605,7 +605,7 @@ session_start();
         </button>
         
         <h2><?php echo $_SESSION['organization_name']; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h3>Interdepartmental Dependence Statistics</h3>
         
         <canvas id="Chart6" class="chart-canvas"></canvas>
       </div>
