@@ -1,0 +1,9 @@
+Flask==3.1.0
+flask_cors==5.0.1
+mysql-connector-python==9.2.0
+pandas==2.2.3
+numpy==2.0.2
+joblib==1.4.2
+sentence-transformers==3.4.1
+scikit-learn==1.6.1  # Keep if model is a sklearn pipeline
+xgboost==3.0.0       # Keep only if model uses XGBoost
