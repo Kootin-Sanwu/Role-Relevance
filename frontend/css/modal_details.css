@@ -1,0 +1,345 @@
+/* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #4158d0;
+  --secondary-color: #c850c0;
+  --tertiary-color: #ffcc70;
+  --text-color: #fff;
+  --bg-dark: rgba(20, 20, 35, 0.95);
+  --shadow-color: rgba(65, 88, 208, 0.5);
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --transition-speed: 0.3s;
+}
+
+html, body {
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Card Layout */
+.job-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(135deg, var(--bg-dark), rgba(30, 30, 50, 0.97)); */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  color: var(--text-color);
+  overflow: hidden;
+  position: relative;
+  opacity: 0.9;
+}
+
+.job-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--tertiary-color)); */
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.job-card h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); */
+  background: linear-gradient(white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.job-card p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 80%;
+  text-align: center;
+}
+
+.job-form {
+  width: 95%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input Styles */
+.job-card-inputs {
+  margin-top: 1.5rem;
+  width: 100%;
+  transition: all 0.6s ease;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.job-entry {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.job-entry label {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  align-self: flex-start;
+  padding-left: 10%;
+}
+
+input, select, textarea {
+  width: 70%;
+  padding: 1rem 1.5rem;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text-color);
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1rem;
+  transition: all var(--transition-speed) ease;
+  margin: 0 auto;
+  outline: none;
+  text-align: center;
+}
+
+input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 20px var(--shadow-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+    padding-right: 2.5rem;
+    align-self: center;
+}
+
+select option {
+  color: black;
+  background-color: white;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 250px;
+}
+
+/* Button Styles */
+button {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:hover::before {
+  transform: translateX(100%);
+}
+
+button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+  margin-top: 2rem;
+  width: auto;
+  letter-spacing: 0.5px;
+}
+
+.remove-button {
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: none;
+  transition: all var(--transition-speed) ease;
+}
+
+.remove-button:hover {
+  color: var(--text-color);
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: none;
+}
+
+.remove-button:hover::before {
+  display: none;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.job-entry.removing {
+  animation: slideUp 0.4s forwards;
+}
+
+.job-entry.adding {
+  animation: slideDown 0.4s forwards;
+}
+
+/* Suggestions List */
+#job-title-suggestions {
+  /* max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  background-color: var(--bg-dark);
+  width: 80%;
+  z-index: 1000;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--input-border);
+  left: 10%; */
+}
+
+.suggestion-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.suggestion-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+/* Datalist styling */
+datalist {
+  background-color: var(--bg-dark);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary-color), var(--secondary-color));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--secondary-color), var(--tertiary-color));
+}
+
+/* Responsive adjustments */
+@media (max-height: 700px) {
+  .job-card h1 {
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+  }
+  
+  .job-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  input, select, textarea {
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .job-entry {
+    margin-bottom: 1rem;
+  }
+  
+  textarea {
+    min-height: 80px;
+  }
+  
+  button[type="submit"] {
+    margin-top: 1.5rem;
+  }
+}

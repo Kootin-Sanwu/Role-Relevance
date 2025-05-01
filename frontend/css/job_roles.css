@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Century", sans-serif;
+    font-size: medium;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f5;
+    background-color: transparent;
+    min-height: 100vh;
+    padding: 1rem;
+    /* overflow: scroll; */
+}
+
+.job-card {
+    align-self: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #923D41, #582728);
+    padding: 1.5rem;
+    box-shadow: 25px 30px 55px rgba(80, 80, 80, 0.7);
+    width: 100%;
+    max-width: 800px;
+    color: #ffffff;
+    height: fit-content;
+    overflow: hidden;
+    transition: height 0.6s ease-in-out, max-height 0.6s ease-in-out;
+}
+
+.job-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.job-card p {
+    font-size: 1.2rem;
+}
+
+.job-form {
+    width: 95%;
+}
+
+input {
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+input:focus {
+    box-shadow: 0 0 95px rgba(146, 61, 65, 1);
+    border: 0.5px solid rgba(88, 39, 40, 1);
+}
+
+.job-card-inputs {
+    margin-top: 1.5rem;
+    transition: all 0.6s ease;
+}
+
+.job-card-inputs input {
+    width: 80%;
+    padding: 0.7rem;
+    margin-top: 0.7rem;
+    border-radius: 0px;
+}
+
+.input-group input {
+    width: 80%;
+    padding: 0.7rem;
+    margin-top: 0.7rem;
+    border-radius: 0px;
+}
+
+.job-card-inputs label {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.job-entry label {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+button {
+    background: linear-gradient(to right, #ffffff, #bebebe);
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    color: #000;
+    border-radius: 2.5px;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    transition: all 0.3s ease;
+    font-family: "Century", sans-serif;
+}
+
+.icon-button {
+    background: none;
+    padding: 0.5rem;
+    color: white;
+    display: block;
+    margin: 1rem auto;
+}
+
+.icon-button:hover {
+    transform: scale(1.3);
+}
+
+.remove-button {
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    color: #ffffff;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0.5rem;
+    top: 2%;
+    transition: transform 0.3s ease;
+}
+
+.remove-button:hover {
+    transform: scale(1.2);
+}
+
+.icon-button svg {
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+button[type="submit"] {
+    background: linear-gradient(to right, #ffffff, #bebebe);
+    color: rgb(0, 0, 0);
+    display: block;
+    margin: 1rem auto;
+    margin-bottom: 20px;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.03);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+    height: auto;
+    position: relative;
+    transition: all 0.6s ease;
+}
+
+.job-entry label {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.job-card-inputs input {
+    margin-top: 0.5rem;
+    width: 100%;
+    max-width: 80%;
+    text-align: center;
+    font-family: "Century", sans-serif;
+    align-self: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.job-card-inputs textarea {
+    width: 80%;
+    padding: 0.7rem;
+    margin-top: 1rem;
+    resize: vertical;
+    min-height: 45px;
+    max-height: 300px;
+    font-family: "Century", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+.job-entry.removing {
+    animation: slideUp 0.6s ease-out;
+}
+
+.job-entry.adding {
+    animation: slideDown 0.6s ease-out;
+}
+
+#job-title-suggestions {
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: transparent;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+  position: relative;
+  border-radius: 5px;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 500px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-400px);
+        height: 0;
+    }
+}

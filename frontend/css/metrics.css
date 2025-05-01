@@ -1,0 +1,305 @@
+/* body {
+    font-family: 'Times New Roman', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e3e3e3, #e3e3e3);
+    margin: 0;
+    color: rgb(0, 0, 0);
+}
+
+.welcome-container {
+    text-align: center;
+    animation: fadeInUp 1.5s ease-out;
+    margin-top: 90px;
+}
+
+h1 {
+    font-size: 3em;
+    color: #000000;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.subtext {
+    font-size: 1.2em;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.buttons-container {
+    margin-top: 80px;
+    margin-bottom: 150px;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.metric-button {
+    font-family: 'Times New Roman', serif;
+    background: linear-gradient(135deg, #923d41, #923d41);
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    padding: 35px 75px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 4px 15px rgba(39, 39, 39, 0.5);
+    text-align: center;
+    width: 335px;
+    height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 
+        transform 0.3s ease, 
+        background-color 0.4s ease, 
+        box-shadow 0.4s ease;
+    will-change: transform;
+    transform-origin: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+.metric-button:hover {
+    transition: 
+        transform 0.3s ease, 
+        background-color 0.4s ease, 
+        box-shadow 0.4s ease;
+    will-change: transform;
+    transform-origin: center;
+    -webkit-font-smoothing: antialiased;
+} */
+
+
+
+
+
+body {
+    font-family: 'Times New Roman', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e3e3e3, #e3e3e3);
+    margin: 0;
+    color: rgb(0, 0, 0);
+  }
+
+  .welcome-container {
+    text-align: center;
+    animation: fadeInUp 1.5s ease-out;
+    margin-top: 90px;
+    width: 100%;
+    /* max-width: 1500px; */
+  }
+
+  h1 {
+    font-size: 3.5em;
+    color: #000000;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  .subtext {
+    font-size: 1.2em;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+  }
+
+  .buttons-container {
+    margin-top: 60px;
+    margin-bottom: 150px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .metric-button-wrapper {
+    position: relative;
+    width: 335px;
+    height: 105px;
+    overflow: hidden;
+    box-shadow: 0px 6px 20px rgba(39, 39, 39, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.4s ease;
+    border-radius: 4px;
+  }
+
+  .metric-button-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(39, 39, 39, 0.4);
+  }
+
+  .metric-button {
+    font-family: 'Times New Roman', serif;
+    background: linear-gradient(135deg, #dddddd, #ffffff);
+    color: rgb(146, 61, 65);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+  }
+
+  .metric-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #bebebe, #ffffff);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .metric-button:hover::before {
+    opacity: 1;
+  }
+
+  .metric-button-bar-1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #923D41, #502124);
+    transition: width 0.4s ease;
+    z-index: 2;
+  }
+
+  .metric-button-bar-2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #007BFF, #002144);
+    transition: width 0.4s ease;
+    z-index: 2;
+  }
+  
+  .metric-button-bar-3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3C6933, #1e361a);
+    transition: width 0.4s ease;
+    z-index: 2;
+  }
+  .metric-button-bar-4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5F338C, #311a48);
+    transition: width 0.4s ease;
+    z-index: 2;
+  }
+  .metric-button-bar-5 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #583500, #372100);
+    transition: width 0.4s ease;
+    z-index: 2;
+  }
+  .metric-button-bar-6 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #777777, #000000);
+    transition: width 0.4s ease;
+    z-index: 2;
+  }
+
+  .metric-button-wrapper:hover .metric-button-bar-1 {
+    width: 100%;
+  }
+  
+  .metric-button-wrapper:hover .metric-button-bar-2 {
+    width: 100%;
+  }
+  .metric-button-wrapper:hover .metric-button-bar-3 {
+    width: 100%;
+  }
+  .metric-button-wrapper:hover .metric-button-bar-4 {
+    width: 100%;
+  }
+  .metric-button-wrapper:hover .metric-button-bar-5 {
+    width: 100%;
+  }
+  .metric-button-wrapper:hover .metric-button-bar-6 {
+    width: 100%;
+  }
+
+  .metric-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(30deg);
+    transition: left 0.7s ease;
+  }
+
+  .metric-button-wrapper:hover .metric-button::after {
+    left: 130%;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .buttons-container {
+      width: 90%;
+      gap: 20px;
+    }
+    
+    .metric-button-wrapper {
+      width: 280px;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+    }
+  }

@@ -1,0 +1,115 @@
+.performance, .revenue, .susceptible {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  scroll-margin-top: 40px;
+}
+
+.finance, .market, .dependence {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  scroll-margin-top: 40px;
+  background-color: #ffffff;
+}
+
+.metric-container {
+  width: 70%;
+  margin: 0 auto;
+  /* padding: 20px 0; */
+  /* margin-left: 50px; */
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  /* margin-right: 100px; */
+}
+
+.info {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  padding: 20px 0;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.chart-container-1 {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 2200px;
+  margin-right: 5%;
+}
+
+.chart-container-2 {
+  text-align: center;
+  background-color: #e3e3e3;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 2200px;
+  margin-right: 5%;
+}
+
+.chart-canvas {
+  max-width: 100%;
+  max-height: 70%;
+  margin-bottom: 25px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  background-color: #cacaca;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #a7a7a7;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
