@@ -1,20 +1,14 @@
 <?php
 
-// Database connection parameters
-$host = 'database';
-$dbname = 'RoleEvaluation';
-$username = 'root';
-$password = 'K22.Kb16.Nk28.Ny27';
+$host = getenv("MYSQL_DATABASE") ? 'database' : 'localhost'; // fallback if not using Docker
+$dbname = getenv("MYSQL_DATABASE");
+$username = getenv("MYSQL_USER");
+$password = getenv("MYSQL_PASSWORD");
 
 try {
-
-    // Establish a connection to the database
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Enable error reporting
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); // Fetch results as associative arrays
-
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-
-    // If connection fails, terminate script and display error message
     die("Database connection failed: " . $e->getMessage());
 }

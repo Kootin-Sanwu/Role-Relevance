@@ -11,6 +11,8 @@ services:
     depends_on:
       - database
       - ml-api
+    env_file:
+      - .env
     networks:
       - internal
 
