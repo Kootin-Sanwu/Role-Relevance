@@ -48,7 +48,7 @@ services:
     ports:
       - "3000:80"
     volumes:
-      - ./frontend:/usr/share/nginx/html:ro
+      - ./frontend:/var/www/html
     networks:
       - internal
 
