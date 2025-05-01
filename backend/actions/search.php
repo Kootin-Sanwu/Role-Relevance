@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json");
+
 require '../settings/connection.php'; // Include database connection
 
 if (isset($_GET['q'])) {

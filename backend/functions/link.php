@@ -20,7 +20,7 @@ function generateApprovalLink($organizationEmail, $hashedPassword, $organization
     ];
 
     $token = base64_encode(json_encode($tokenData));
-    return "http://13.53.212.117/Local-Job-Role-Relevance-1/frontend/views/approval.php?action=approve&token=$token";
+    return "http://13.53.212.117:8080/Local-Job-Role-Relevance-1/frontend/views/approval.php?action=approve&token=$token";
 }
 
 // Function to generate admin decline link
