@@ -1,8 +1,9 @@
 # Ignore virtual environment
 .venv/
 
-# Ignore dependencies
-vendor/
+# Ignore backend PHP dependencies only
+/vendor/
+!frontend/assets/vendor/
 
 # Ignore Python bytecode
 __pycache__/
