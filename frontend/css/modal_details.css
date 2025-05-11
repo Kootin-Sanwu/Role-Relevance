@@ -1,13 +1,12 @@
-/* Base Styles */
+/* Modal Details CSS */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #4158d0;
-  --secondary-color: #c850c0;
-  --tertiary-color: #ffcc70;
+  --primary-color: #923D41;
+  --secondary-color: #582728;
   --text-color: #fff;
   --bg-dark: rgba(20, 20, 35, 0.95);
-  --shadow-color: rgba(65, 88, 208, 0.5);
+  --shadow-color: rgba(146, 61, 65, 0.7);
   --input-bg: rgba(255, 255, 255, 0.08);
   --input-border: rgba(255, 255, 255, 0.1);
   --transition-speed: 0.3s;
@@ -15,325 +14,279 @@
 
 html,
 body {
-  /* font-family: 'Poppins', sans-serif; */
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: "Century", sans-serif;
   height: 100%;
   margin: 0;
   overflow: hidden;
 }
 
-/* Card Layout */
-.job-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* background: linear-gradient(135deg, var(--bg-dark), rgba(30, 30, 50, 0.97)); */
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100vh;
-  color: var(--text-color);
-  overflow: hidden;
-  position: relative;
-  opacity: 0.9;
-}
-
-.job-card::before {
-  content: "";
-  position: absolute;
+/* Modal Layout */
+.modal {
+  display: none;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  /* background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--tertiary-color)); */
-  opacity: 0.1;
-  z-index: -1;
-}
-
-.job-card h1 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); */
-  background: linear-gradient(white);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.job-card p {
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 80%;
-  text-align: center;
-}
-
-.job-form {
-  width: 95%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Input Styles */
-.job-card-inputs {
-  margin-top: 1.5rem;
   width: 100%;
-  transition: all 0.6s ease;
-  align-items: center;
-  align-self: center;
-  align-content: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   justify-content: center;
-  text-align: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
 }
 
-.job-entry {
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  border-radius: 0px;
+  box-shadow: 25px 30px 55px rgba(80, 80, 80, 0.7);
+  color: var(--text-color);
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+.modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Form Elements */
+.modal-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
   width: 100%;
   margin-bottom: 1.5rem;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.job-entry label {
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  align-self: center;
   font-size: 1rem;
-  margin-bottom: 0.7rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  align-self: flex-start;
-  padding-left: 10%;
 }
 
-input,
-select,
-textarea {
-  width: 70%;
-  padding: 1rem 1.5rem;
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 80%;
+  padding: 0.7rem;
   background: var(--input-bg);
-  border: 1px solid var(--input-border);
+  border: 1px solid transparent;
   border-radius: 0px;
   color: var(--text-color);
-  /* font-family: 'Poppins', sans-serif; */
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: "Century", sans-serif;
   font-size: 1rem;
   transition: all var(--transition-speed) ease;
-  margin: 0 auto;
-  outline: none;
   text-align: center;
+  outline: none;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  box-shadow: 0 0 20px var(--shadow-color);
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 95px rgba(146, 61, 65, 1);
+  border: 0.5px solid rgba(88, 39, 40, 1);
 }
 
-select {
+.form-group textarea {
+  resize: vertical;
+  min-height: 45px;
+  max-height: 300px;
+  line-height: 1.5;
+}
+
+.form-group select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1.2em;
   padding-right: 2.5rem;
-  align-self: center;
 }
 
-select option {
+.form-group select option {
   color: black;
   background-color: white;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 100px;
-  max-height: 250px;
-}
-
 /* Button Styles */
-button {
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  border: none;
-  padding: 0.5rem 1.25rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-color);
-  border-radius: 0px;
-  cursor: pointer;
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   margin-top: 1.5rem;
-  transition: all var(--transition-speed) ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-  font-family: 'Poppins', sans-serif;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-button:hover::before {
-  transform: translateX(100%);
-}
-
-button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-button[type="submit"] {
-  margin-top: 2rem;
-  width: auto;
-  letter-spacing: 0.5px;
-}
-
-.remove-button {
-  background: transparent;
+.modal-buttons button {
+  background: linear-gradient(to right, #ffffff, #bebebe);
   border: none;
-  padding: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  position: absolute;
-  right: 10%;
-  top: 50%;
-  transform: translateY(-50%);
-  box-shadow: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  color: #000;
+  border-radius: 2.5px;
+  cursor: pointer;
   transition: all var(--transition-speed) ease;
+  font-family: "Century", sans-serif;
 }
 
-.remove-button:hover {
-  color: var(--text-color);
-  transform: translateY(-50%) scale(1.2);
-  box-shadow: none;
+.modal-buttons button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.remove-button:hover::before {
-  display: none;
+.modal-buttons button.cancel {
+  background: linear-gradient(to right, #bebebe, #8a8a8a);
 }
 
 /* Animations */
-@keyframes slideUp {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-}
-
-@keyframes slideDown {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.job-entry.removing {
-  animation: slideUp 0.4s forwards;
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
 
-.job-entry.adding {
-  animation: slideDown 0.4s forwards;
+.modal-content.entering {
+  animation: fadeIn 0.3s forwards;
 }
 
-.suggestion-item {
-  color: var(--text-color);
-  padding: 12px 15px;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
-}
-
-.suggestion-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-iframe {
-  border: none;
-  width: 100%;
-  height: 100vh;
-  display: block;
-}
-
-/* Datalist styling */
-datalist {
-  background-color: var(--bg-dark);
-  border-radius: 0px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.modal-content.exiting {
+  animation: fadeOut 0.3s forwards;
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
+.modal-body::-webkit-scrollbar {
   width: 8px;
 }
 
-::-webkit-scrollbar-track {
+.modal-body::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 0px;
 }
 
-::-webkit-scrollbar-thumb {
+.modal-body::-webkit-scrollbar-thumb {
   background: linear-gradient(var(--primary-color), var(--secondary-color));
   border-radius: 0px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(var(--secondary-color), var(--tertiary-color));
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Table Styles for Modal */
+.modal-table {
+  width: 90%;
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+  color: var(--text-color);
+}
+
+.modal-table th,
+.modal-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-table th {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Responsive adjustments */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .modal-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 90%;
+  }
+  
+  .modal-table {
+    width: 100%;
+  }
+}
+
 @media (max-height: 700px) {
-  .job-card h1 {
-    font-size: 1.8rem;
-    margin-top: 0.5rem;
+  .modal-body {
+    max-height: 60vh;
   }
-
-  .job-card p {
-    font-size: 1rem;
+  
+  .form-group {
     margin-bottom: 1rem;
-  }
-
-  input,
-  select,
-  textarea {
-    padding: 0.8rem 1.2rem;
-  }
-
-  .job-entry {
-    margin-bottom: 1rem;
-  }
-
-  textarea {
-    min-height: 80px;
-  }
-
-  button[type="submit"] {
-    margin-top: 1.5rem;
   }
 }
