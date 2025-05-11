@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             } else {
 
-                header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid email or password.'));
+                // header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid email or password.'));
                 exit();
             }
         } catch (PDOException $e) {
