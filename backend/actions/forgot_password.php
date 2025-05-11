@@ -11,6 +11,9 @@ include_once "../settings/connection.php";
 // Include the OTP generation function
 include_once "../functions/send_OTP.php";
 
+$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['organization_email'])) {
 
     $organizationEmail = filter_var($_POST['organization_email'], FILTER_SANITIZE_EMAIL);
@@ -28,12 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['organization_email'])
 
         $passwordRegex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
         if (!preg_match($passwordRegex, $newPassword)) {
-            header("Location: ../../frontend/views/reset_password.php?msg=Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+            header("Location: $frontend_url/views/reset_password.php?msg=Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
             exit();
         }
 
         if ($newPassword !== $confirmNewPassword) {
-            header("Location: ../../frontend/views/reset_password.php?msg=Passwords do not match.");
+            header("Location: $frontend_url/views/reset_password.php?msg=Passwords do not match.");
             exit();
         }
 
@@ -43,10 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['organization_email'])
         $stmt->execute([$hashedPassword, $organizationEmail]);
 
         if ($stmt->rowCount() > 0) {
-            header("Location: ../../frontend/views/login.php?msg=Password updated successfully.");
+            header("Location: $frontend_url/views/login.php?msg=Password updated successfully.");
             exit();
         } else {
-            header("Location: ../../frontend/views/reset_password.php?msg=Error updating password.");
+            header("Location: $frontend_url/views/reset_password.php?msg=Error updating password.");
             exit();
         }
     }
@@ -72,11 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['organization_email'])
 
                 // Send OTP email
                 sendOTP($organizationEmail, $OTP);
-                header("Location: ../../frontend/views/verify_otp.php?msg=" . urlencode($forgotPassword));
+                header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode($forgotPassword));
                 exit();
             } else {
 
-                header("Location: ../../frontend/views/forgot_password.php?msg=Email not found.");
+                header("Location: $frontend_url/views/forgot_password.php?msg=Email not found.");
                 exit();
             }
         } else {
@@ -88,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['organization_email'])
     }
 } else if (isset($_GET['msg']) && $_GET['msg'] === 'Reset Password') {
 
-    header("Location: ../../frontend/views/reset_password.php");
+    header("Location: $frontend_url/views/reset_password.php");
     exit();
 } else {
 
