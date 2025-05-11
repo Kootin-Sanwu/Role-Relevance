@@ -17,7 +17,7 @@
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <!-- <form action="../../backend/actions/register.php" method="POST"> -->
-            <form action="http://localhost:8080/actions/register.php" method="POST">
+            <form action="http://13.60.64.199:8080/actions/register.php" method="POST">
                 <h1>Create Account</h1>
                 <div class="infield">
                     <input type="email" placeholder="Organization Email" name="organization_email" />
@@ -36,7 +36,7 @@
         </div>
         <div class="form-container sign-in-container">
             <!-- <form action="../../backend/actions/login.php" method="POST"> -->
-            <form action="http://localhost:8080/actions/login.php" method="POST">
+            <form action="http://13.60.64.199:8080/actions/login.php" method="POST">
                 <h1>Sign in</h1>
                 <div class="infield">
                     <input type="email" placeholder="Organization Email" name="organization_email" required/>

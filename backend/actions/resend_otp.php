@@ -7,8 +7,8 @@ session_start();
 // Include the OTP generation function
 include_once "../functions/send_OTP.php";
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
+$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
 
 if (isset($_SESSION['organization_email'])) {
 

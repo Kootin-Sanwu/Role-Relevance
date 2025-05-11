@@ -13,9 +13,9 @@ include_once "../functions/send_OTP.php";
 // Include the predict function
 include_once "../functions/predict.php"; 
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
-$mlapi_url = getenv("ML_API_URL") ?: "http://localhost:5000";
+$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
+$mlapi_url = getenv("ML_API_URL") ?: "http://13.60.64.199:5000";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -59,9 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['organization_email'] = $organizationEmail;
                     $_SESSION['organization_name'] = $row['Name'];
 
-                    setcookie("organization_name", $_SESSION['organization_name'], time() + 3600, "/", "localhost", false, true);
-                    setcookie("organization_id", $_SESSION['OrganizationID'], time() + 3600, "/", "localhost", false, true);
-                    setcookie("organization_email", $_SESSION['organization_email'], time() + 3600, "/", "localhost", false, true);
+                    setcookie("organization_name", $_SESSION['organization_name'], time() + 3600, "/", "13.60.64.199", false, true);
+                    setcookie("organization_id", $_SESSION['OrganizationID'], time() + 3600, "/", "13.60.64.199", false, true);
+                    setcookie("organization_email", $_SESSION['organization_email'], time() + 3600, "/", "13.60.64.199", false, true);
 
                     $organizationID = $_SESSION["OrganizationID"];
 

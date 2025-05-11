@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 session_start();
 include "../settings/connection.php";
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
+$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     

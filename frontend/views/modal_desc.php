@@ -31,7 +31,7 @@ if ($response !== false) {
     <h1>Role Description</h1>
     <p>Add a brief description for one of your organization’s roles.</p>
 
-    <form action="http://localhost:8080/actions/details.php" method="POST" class="job-form">
+    <form action="http://13.60.64.199:8080/actions/details.php" method="POST" class="job-form">
       <input type="hidden" name="adding" value="Role Description Submission" />
 
       <div class="job-card-inputs">

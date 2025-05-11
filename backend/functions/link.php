@@ -7,7 +7,7 @@ require '../vendor/autoload.php';
 function generateApprovalLink($organizationEmail, $hashedPassword, $organizationName, $jobTitles, $organizationDescription)
 {
     
-    $frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
+    $frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
 
     // Ensure job_titles is always an array
     $jobTitles = is_array($jobTitles) ? array_values($jobTitles) : [$jobTitles];
@@ -29,7 +29,7 @@ function generateApprovalLink($organizationEmail, $hashedPassword, $organization
 function generateDeclineLink($organizationEmail)
 {
     
-    $frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
+    $frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
 
     $token = base64_encode(json_encode(["organizaiton_email" => $organizationEmail]));
     return "$frontend_url/views/approval.php?action=decline&token=$token";

@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// $backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
+// $backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
 
 // include "$backend_url/settings/connection.php";
 
@@ -61,7 +61,7 @@ else {
             <p><strong>Email:</strong> <?php echo $organizationEmail; ?></p>
 
             <p><strong>Action:</strong> Approve Registration</p>
-            <form action="http://localhost:8080/actions/details.php" method="POST">
+            <form action="http://13.60.64.199:8080/actions/details.php" method="POST">
 
                 <input type="hidden" name="organization_email" value="<?php 
                                                                             echo htmlspecialchars($organizationEmail);
@@ -85,7 +85,7 @@ else {
             </form>
 
             <p><strong>Action:</strong> Decline Registration</p>
-            <form action="http://localhost:8080/actions/approval.php" method="POST">
+            <form action="http://13.60.64.199:8080/actions/approval.php" method="POST">
                 <input type="hidden" name="organization_email" value="<?php echo htmlspecialchars($organizationEmail); ?>">
                 <input type="hidden" name="Action" value="decline">
                 <button type="submit">Decline</button>

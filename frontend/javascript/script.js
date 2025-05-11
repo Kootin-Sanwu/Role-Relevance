@@ -49,7 +49,7 @@ async function fetchData_1() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5001/get_scores_1', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_1', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ async function fetchData_2() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5001/get_scores_2', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ async function fetchData_3() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5001/get_scores_3', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_3', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ async function fetchData_4() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5001/get_scores_4', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_4', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -189,7 +189,7 @@ async function fetchData_5() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5001/get_scores_5', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_5', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -223,7 +223,7 @@ async function fetchData_6() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://localhost:5001/get_scores_6', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_6', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

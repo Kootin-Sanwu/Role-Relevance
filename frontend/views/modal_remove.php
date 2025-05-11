@@ -6,7 +6,7 @@ if (!$organizationID) {
     exit;
 }
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
+$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
 $backend_url = getenv("BACKEND_URL") ?: "http://backend";
 
 $apiUrl = "$backend_url/actions/get_org_info.php?organization_id=" . urlencode($organizationID);
@@ -43,7 +43,7 @@ if (!is_array($roles)) {
     <?php if (count($roles) === 0): ?>
       <p><strong>No roles found.</strong></p>
     <?php else: ?>
-    <form action="http://localhost:8080/actions/details.php" method="POST" class="job-form">
+    <form action="http://13.60.64.199:8080/actions/details.php" method="POST" class="job-form">
       <input type="hidden" name="removing" value="Role Deletion Request" />
 
       <div class="job-card-inputs">
