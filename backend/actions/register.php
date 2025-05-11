@@ -19,9 +19,6 @@ include_once "../functions/approval.php";
 // Include the approval notification function
 include_once "../functions/notify.php";
 
-// http://13.60.64.199:3000 = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
-// $backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $errors = [];
@@ -37,9 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate required fields
     if (empty($organizationEmail) || empty($password) || empty($confirmPassword)) {
-
-        // header("Location: ../../frontend/views/login.php?msg=" . urlencode("All fields must be filled"));
-        // exit();
 
         header("Location: http://13.60.64.199:3000/views/login.php?msg=" . urlencode("All fields must be filled"));
         exit();

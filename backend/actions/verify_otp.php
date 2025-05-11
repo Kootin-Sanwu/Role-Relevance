@@ -5,9 +5,6 @@ error_reporting(E_ALL);
 session_start();
 include "../settings/connection.php";
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $userOTP = implode('', $_POST['OTP']);
@@ -32,14 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($overdueOTP > 120) {
         
-        header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode("OTP expired. Please try again."));
+        header("Location: http://13.60.64.199:3000/views/verify_otp.php?msg=" . urlencode("OTP expired. Please try again."));
         exit();
     }
     
     // Verify OTP match first before any redirects
     if ($userOTP !== $expectedOTP) {
         
-        header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode("Incorrect OTP. Please try again."));
+        header("Location: http://13.60.64.199:3000/views/verify_otp.php?msg=" . urlencode("Incorrect OTP. Please try again."));
         exit();
     } else if ($userOTP === $expectedOTP && (isset($_SESSION['registering']))) {
 
@@ -56,6 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: forgot_password.php?msg=" . urlencode("Reset Password"));
     } else {
 
-        header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode("Restart the login process."));
+        header("Location: http://13.60.64.199:3000/views/verify_otp.php?msg=" . urlencode("Restart the login process."));
     }
 }

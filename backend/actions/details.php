@@ -17,9 +17,6 @@ include_once "../functions/approval.php";
 // Include the approval notification function
 include_once "../functions/notify.php";
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
 
     if ($_POST['Action'] === 'approve') {
@@ -52,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
             $stmt = $pdo->prepare("INSERT INTO Organizations (Name, Email, Password, Description) VALUES (?, ?, ?, ?)");
 
             if (!$stmt->execute([$organizationName, $organizationEmail, $hashedPassword, $organizationDescription])) {
-                header("Location: $frontend_url/views/metrics.php");
+                header("Location: http://13.60.64.199:3000/views/metrics.php");
                 exit();
             }
 
@@ -85,10 +82,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
 
         // Send approval email
         if (sendApprovalEmail($organizationEmail)) {
-            header("Location: $frontend_url/views/approval.php?msg=" . urlencode("User approved and registered successfully. Notification sent."));
+            header("Location: http://13.60.64.199:3000/views/approval.php?msg=" . urlencode("User approved and registered successfully. Notification sent."));
             exit();
         } else {
-            header("Location: $frontend_url/views/approval.php?msg=" . urlencode("User approved and registered successfully. Email notification failed."));
+            header("Location: http://13.60.64.199:3000/views/approval.php?msg=" . urlencode("User approved and registered successfully. Email notification failed."));
             exit();
         }
 
@@ -100,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
     } else if ($_POST['Action'] === 'decline') {
 
         $organizationEmail = $data['organization_email'];
-        header("Location: $frontend_url/index.php?msg=User registration declined for email: $organizationEmail");
+        header("Location: http://13.60.64.199:3000/index.php?msg=User registration declined for email: $organizationEmail");
         exit();
     }
 
@@ -287,7 +284,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
     // Send OTP email
     sendOTP($organizationEmail, $OTP);
 
-    header("Location: $frontend_url/views/verify_otp.php");
+    header("Location: http://13.60.64.199:3000/views/verify_otp.php");
 
 }
 ?>

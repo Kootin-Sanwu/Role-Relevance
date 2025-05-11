@@ -3,12 +3,12 @@
 session_start(); // Start the session
 include "../settings/connection.php"; // Include the database connection
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
+http://13.60.64.199:3000 = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
 $backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
 
 // Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: $frontend_url/views/job_roles.php");
+    header("Location: http://13.60.64.199:3000/views/job_roles.php");
     exit;
 }
 
@@ -18,12 +18,12 @@ $jobTitles = $_POST['job_title'] ?? [];
 
 // Ensure organization name and at least one job title are provided
 if (empty($organizationName) || empty($jobTitles)) {
-    header("Location: $frontend_url/views/job_roles.php?msg=" . urlencode('Organization name and at least one job title are required.'));
+    header("Location: http://13.60.64.199:3000/views/job_roles.php?msg=" . urlencode('Organization name and at least one job title are required.'));
 }
 
 // Check if the Organization ID exists in the session
 if (!isset($_SESSION['OrganizationID'])) {
-    header("Location: $frontend_url/views/job_roles.php?msg=" . urlencode('No organization found in session. Please log in again.'));
+    header("Location: http://13.60.64.199:3000/views/job_roles.php?msg=" . urlencode('No organization found in session. Please log in again.'));
 }
 
 $organizationID = $_SESSION['OrganizationID'];
@@ -44,7 +44,7 @@ try {
     }
 
     // Redirect with success message
-    header("Location: $frontend_url/index.php?msg=" . urlencode('Job roles submitted successfully.'));
+    header("Location: http://13.60.64.199:3000/index.php?msg=" . urlencode('Job roles submitted successfully.'));
     exit();
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());

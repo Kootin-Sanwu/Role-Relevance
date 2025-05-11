@@ -7,9 +7,6 @@ session_start();
 // Include the OTP generation function
 include_once "../functions/send_OTP.php";
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
-
 if (isset($_SESSION['organization_email'])) {
 
     $organizationEmail = $_SESSION['organization_email'];
@@ -26,6 +23,6 @@ if (isset($_SESSION['organization_email'])) {
     sendOTP($organizationEmail, $OTP);
 
     // Redirect to OTP verification page
-    header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode("OTP has been resent."));
+    header("Location: http://13.60.64.199:3000/views/verify_otp.php?msg=" . urlencode("OTP has been resent."));
     exit();
 }

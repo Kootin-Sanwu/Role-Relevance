@@ -13,10 +13,6 @@ include_once "../functions/send_OTP.php";
 // Include the predict function
 include_once "../functions/predict.php";
 
-// http://13.60.64.199:3000 = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
-// $backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
-$mlapi_url = getenv("ML_API_URL") ?: "http://13.60.64.199:5000";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION['signing_in'] = "signing_in";
@@ -92,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ];
 
                     // $ch = curl_init('http://127.0.0.1:5000/get_scores_1');
-                    $ch = curl_init("$mlapi_url/get_scores_1");
+                    $ch = curl_init("http://13.60.64.199:5000/get_scores_1");
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
                     curl_setopt($ch, CURLOPT_POST, true);

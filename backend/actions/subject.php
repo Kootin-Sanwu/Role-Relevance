@@ -2,9 +2,6 @@
 // Start the session
 session_start();
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
-
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Capture the organization name and description from the form
@@ -20,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // echo "Organization Description: " . $_SESSION['organization_description'] . "<br>";
 
     // Redirect or send a success response after storing the session data
-    header("Location: $frontend_url/views/details.php");  // Redirect to a success page (you can create this page)
+    header("Location: http://13.60.64.199:3000/views/details.php");  // Redirect to a success page (you can create this page)
     exit();
 }
 ?>
