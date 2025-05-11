@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(":Email", $organizationEmail, PDO::PARAM_STR);
             $stmt->execute();
     
-            if ($stmt->rowCount() === 1) {
+            if ($stmt->rowCount() >= 1) {
                 $row = $stmt->fetch();
     
                 if (password_verify($password, $row['Password'])) {
