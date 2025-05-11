@@ -17,6 +17,9 @@ include_once "../functions/approval.php";
 // Include the approval notification function
 include_once "../functions/notify.php";
 
+$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
 
     if ($_POST['Action'] === 'approve') {
@@ -28,11 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
         $hashedPassword = $_POST['hashed_password'];
         $organizationDescription = $_POST['organization_description'];
 
-        echo ($_POST['organization_name']);
-        echo ($_POST['job_title']);
-        echo ($_POST['organization_email']);
-        echo ($_POST['hashed_password']);
-        echo ($_POST['organization_description']);
+        $organizationEmail = trim($organizationEmail); // Sanitize input
+        $organizationDescription = trim($organizationDescription); // Sanitize input
+
+        $_SESSION['organization_email'] = $organizationEmail; // Store email in session
+        $_SESSION['organization_name'] = $organizationName; // Store organization name in session
+        $_SESSION['hashed_password'] = $hashedPassword; // Store hashed password in session
 
         // Check if organization already exists
         $stmt = $pdo->prepare("SELECT OrganizationID, Description FROM Organizations WHERE Email = ?");
@@ -48,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
             $stmt = $pdo->prepare("INSERT INTO Organizations (Name, Email, Password, Description) VALUES (?, ?, ?, ?)");
 
             if (!$stmt->execute([$organizationName, $organizationEmail, $hashedPassword, $organizationDescription])) {
-                header("Location: ../../frontend/views/metrics.php");
+                header("Location: $frontend_url/views/metrics.php");
                 exit();
             }
 
@@ -81,24 +85,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
 
         // Send approval email
         if (sendApprovalEmail($organizationEmail)) {
-            header("Location: ../../frontend/views/approval.php?msg=" . urlencode("User approved and registered successfully. Notification sent."));
+            header("Location: $frontend_url/views/approval.php?msg=" . urlencode("User approved and registered successfully. Notification sent."));
             exit();
         } else {
-            header("Location: ../../frontend/views/approval.php?msg=" . urlencode("User approved and registered successfully. Email notification failed."));
+            header("Location: $frontend_url/views/approval.php?msg=" . urlencode("User approved and registered successfully. Email notification failed."));
+            exit();
+        }
+
+        
+        if (headers_sent($file, $line)) {
+            echo "Headers already sent in $file on line $line";
             exit();
         }
     } else if ($_POST['Action'] === 'decline') {
 
         $organizationEmail = $data['organization_email'];
-        header("Location: ../../frontend/index.php?msg=User registration declined for email: $organizationEmail");
+        header("Location: $frontend_url/index.php?msg=User registration declined for email: $organizationEmail");
         exit();
     }
 
 } else if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["adding"]) && $_POST["adding"] === "Role Title Submission") {
-    $message = $_POST["adding"];
-    echo "<h2>Message: $message</h2>";
     
-    session_start();
+    // session_start();
     $organizationID = $_SESSION["OrganizationID"]; // Ensure this is correctly set during login
     
     // Sanitize input
@@ -118,30 +126,53 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
             if ($checkStmt->fetchColumn() > 0) {
                 // Role already exists
                 echo "
-                <script>
-                    alert('Role \"$roleTitle\" already exists for your organization!');
-                    // Optional: You can either keep the modal open or close it
-                    window.parent.location.reload(); // Reload parent and close modal
-                </script>
+                  <script>
+                    alert('Role \"$roleTitle\" already exists!');
+                    window.parent.postMessage({ type: 'roleExists' }, '*');
+                  </script>
                 ";
                 exit();
             }
-            
+
             // If we get here, the role doesn't exist, so insert it
+            $add_role_desc_stmt = $pdo->prepare("SELECT combined_description FROM temp_job_roles WHERE role_title = ?");            
+            $roleTitle = trim($roleTitle);
+            
+            if (!empty($roleTitle)) {
+
+                $add_org_desc_stmt = $pdo->prepare("SELECT Description FROM Organizations WHERE Email = ?");
+                $add_org_desc_stmt->execute([$_SESSION['organization_email']]);
+                $org_decs_row = $add_org_desc_stmt->fetch();
+                $organizationDescription = $org_decs_row ? $org_decs_row['Description'] : "Description not available";
+                
+                // Fetch the combined description from the temp_job_roles table
+                $add_role_desc_stmt->execute([$roleTitle]);
+                $role_desc_row = $add_role_desc_stmt->fetch();
+                $roleDescription = $role_desc_row ? $role_desc_row['combined_description'] : "Description not available";
+                
+                $organizationName = $_SESSION['organization_name'];
+
+                // Combine the organization description with the job role description
+                $combinedDescription = $organizationDescription . " " . $roleDescription . " " . $organizationName ." " . $roleTitle;
+
+            } else {
+                echo ("Not combining empty roles into the database");
+            }
+            
             $stmt = $pdo->prepare("
                 INSERT INTO JobRoles (OrganizationID, RoleName, RoleDescription)
                 VALUES (:organizationID, :roleTitle, :roleDescription)
             ");
             $stmt->bindParam(':organizationID', $organizationID, PDO::PARAM_INT);
             $stmt->bindParam(':roleTitle', $roleTitle, PDO::PARAM_STR);
-            $stmt->bindParam(':roleDescription', $roleTitle, PDO::PARAM_STR); // Same as roleTitle
-            
+            $stmt->bindParam(':roleDescription', $combinedDescription, PDO::PARAM_STR); // Same as roleTitle
+
             if ($stmt->execute()) {
                 echo "
-                <script>
+                  <script>
                     alert('Role \"$roleTitle\" added successfully!');
-                    window.parent.location.reload(); // Reload parent and close modal
-                </script>
+                    window.parent.postMessage({ type: 'roleAdded' }, '*');
+                  </script>
                 ";
                 exit();
             } else {
@@ -179,11 +210,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
 
                 if ($stmt->execute()) {
                     echo "
-                        <script>
-                          alert('Description for \"$roleName\" added successfully!');
-                          window.parent.location.reload(); // optional if you want a full refresh
-                        </script>
-                    ";
+                      <script>
+                        alert('Description for \"$roleName\" added successfully!');
+                        window.parent.postMessage({ type: 'roleDescriptionAdded' }, '*');
+                      </script>
+                    ";                  
+                  
                 } else {
                     echo "<p>Failed to update the description.</p>";
                 }
@@ -212,10 +244,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
                 $deleteStmt = $pdo->prepare("DELETE FROM JobRoles WHERE JobRoleID = :jobRoleID");
                 $deleteStmt->execute([':jobRoleID' => $jobRoleID]);
 
-                echo "<script>
-                        alert('Role deleted successfully.');
-                        window.parent.location.reload();
-                      </script>";
+                echo "
+                  <script>
+                    alert('Role \"$roleName\" removed successfully!');
+                    window.parent.postMessage({ type: 'roleRemoved' }, '*');
+                  </script>
+                ";
             } else {
                 echo "<p>Role not found or does not belong to your organization.</p>";
             }
@@ -253,7 +287,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['Action'])) {
     // Send OTP email
     sendOTP($organizationEmail, $OTP);
 
-    header("Location: ../../frontend/views/verify_otp.php");
+    header("Location: $frontend_url/views/verify_otp.php");
 
 }
 ?>

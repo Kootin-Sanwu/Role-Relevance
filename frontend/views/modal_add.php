@@ -12,7 +12,7 @@
   <div class="job-card">
     <h1>Job Roles Submission</h1>
     <p>Enter the name of one role in your organization.</p>
-    <form action="../../backend/actions/details.php" method="POST" class="job-form">
+    <form action="http://13.60.64.199:8080/actions/details.php" method="POST" class="job-form">
         <input type="hidden" name="adding" value="Role Title Submission">
         <div class="job-card-inputs">
 
@@ -38,7 +38,7 @@
       </button>
     </form>
   </div>
-  <script src="../javascript/job_roles.js" defer></script>
+  <!-- <script src="../javascript/job_roles.js" defer></script> -->
   <script src="../javascript/alerts.js" defer></script>
   <script src="../javascript/search.js" defer></script>
 </body>

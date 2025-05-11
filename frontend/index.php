@@ -11,8 +11,8 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="assets/assets/img/favicon.png" rel="icon">
-  <link href="assets/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../img/favicon.png" rel="icon">
+  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -52,7 +52,7 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="views/metrics.php">Metrics</a></li>
+          <li><a href="views/login.php">Metrics</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#pricing">Pricing</a></li>
@@ -634,10 +634,10 @@
 <script src="javascript/alerts.js"></script>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/javascript/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/javascript/glightbox.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Main JS File -->
   <script src="javascript/main.js"></script>

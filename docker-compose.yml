@@ -50,17 +50,18 @@ services:
       PMA_HOST: mysql-db
       MYSQL_ROOT_PASSWORD: K22.Kb16.Nk28.Ny27
     ports:
-      - "8081:80"  # Access PHPMyAdmin via http://localhost:8081
+      - "8081:80"
     networks:
       - internal
 
   frontend:
-    image: nginx:alpine
+    image: php:8.2-apache
     container_name: frontend
     ports:
       - "3000:80"
     volumes:
       - ./frontend:/var/www/html
+      - ./backend:/var/www/backend
     networks:
       - internal
 

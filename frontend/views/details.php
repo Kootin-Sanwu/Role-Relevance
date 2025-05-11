@@ -10,7 +10,7 @@
   <div class="job-card">
     <h1>Job Roles Submission</h1>
     <p>Enter the details of available job roles in your organization.</p>
-    <form action="../../backend/actions/details.php" method="POST" class="job-form">
+    <form action="http://13.60.64.199:8080/actions/details.php" method="POST" class="job-form">
       <div class="job-card-inputs">
 
         <div class="job-entry">

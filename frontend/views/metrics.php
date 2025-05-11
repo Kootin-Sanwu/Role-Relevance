@@ -1,5 +1,18 @@
 <?php
 session_start();
+
+$organizationName = isset($_COOKIE['organization_name']) ? htmlspecialchars($_COOKIE['organization_name']) : null;
+$organizationID = isset($_COOKIE['organization_id']) ? htmlspecialchars($_COOKIE['organization_id']) : null;
+
+if (!$organizationName) {
+    header("Location: login.php");
+    exit();
+}
+
+// Fallback to session or use URL parameter
+$organizationName = isset($_GET['organization_name'])
+    ? htmlspecialchars(urldecode($_GET['organization_name'])) 
+    : htmlspecialchars($_SESSION['organization_name']);
 ?>
 
 <!DOCTYPE html>
@@ -212,7 +225,7 @@ session_start();
           <i class="bi bi-arrow-repeat reload-icon"></i>
         </button>
         
-        <h2><?php echo $_SESSION['organization_name']; ?></h2>
+        <h2><?php echo $organizationName; ?></h2>
         <h3>Market Demand Statistics</h3>
         
         <canvas id="Chart1" class="chart-canvas"></canvas>
@@ -287,7 +300,7 @@ session_start();
           <i class="bi bi-arrow-repeat reload-icon"></i>
         </button>
         
-        <h2><?php echo $_SESSION['organization_name']; ?></h2>
+        <h2><?php echo $organizationName; ?></h2>
         <h3>Market Demand Statistics</h3>
         
         <canvas id="Chart2" class="chart-canvas"></canvas>
@@ -362,7 +375,7 @@ session_start();
           <i class="bi bi-arrow-repeat reload-icon"></i>
         </button>
         
-        <h2><?php echo $_SESSION['organization_name']; ?></h2>
+        <h2><?php echo $organizationName; ?></h2>
         <h3>Market Demand Statistics</h3>
         
         <canvas id="Chart3" class="chart-canvas"></canvas>
@@ -435,7 +448,7 @@ session_start();
           <i class="bi bi-arrow-repeat reload-icon"></i>
         </button>
         
-        <h2><?php echo $_SESSION['organization_name']; ?></h2>
+        <h2><?php echo $organizationName; ?></h2>
         <h3>Market Demand Statistics</h3>
         
         <canvas id="Chart4" class="chart-canvas"></canvas>
@@ -511,7 +524,7 @@ session_start();
           <i class="bi bi-arrow-repeat reload-icon"></i>
         </button>
         
-        <h2><?php echo $_SESSION['organization_name']; ?></h2>
+        <h2><?php echo $organizationName; ?></h2>
         <h3>Market Demand Statistics</h3>
         
         <canvas id="Chart5" class="chart-canvas"></canvas>
@@ -587,7 +600,7 @@ session_start();
           <i class="bi bi-arrow-repeat reload-icon"></i>
         </button>
         
-        <h2><?php echo $_SESSION['organization_name']; ?></h2>
+        <h2><?php echo $organizationName; ?></h2>
         <h3>Market Demand Statistics</h3>
         
         <canvas id="Chart6" class="chart-canvas"></canvas>
@@ -838,7 +851,7 @@ session_start();
   <!-- SweetAlert CDN must come first -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Your alerts.js file -->
-  <script src="../../assets/js/alerts.js"></script>
+  <script src="../javascript/alerts.js"></script>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -847,7 +860,8 @@ session_start();
   <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="../javascript/script.js"></script>
+  <!-- <script src="../javascript/script.js"></script> -->
+  <script type="module" src="../javascript/script.js"></script>
   <script src="../javascript/main.js"></script>
   <script src="../javascript/metrics.js"></script>
   <script src="../javascript/performance_modal.js"></script>

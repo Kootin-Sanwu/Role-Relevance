@@ -20,10 +20,15 @@ let lineChart2 = null;
 let barChart3 = null;
 let lineChart3 = null;
 
+// import { FRONTEND_URL, BACKEND_URL, ML_API_URL } from './config.js';
+import { BACKEND_URL } from './config.js';
+
 async function getOrgIdFromPHP() {
   try {
-    const response = await fetch('../../backend/actions/get_org_id.php');
-    const data = await response.json();
+    const response = await fetch(`${BACKEND_URL}/actions/get_org_id.php`, {
+                                                                            method: 'GET',
+                                                                            credentials: 'include', // ✅ This sends session cookies
+                                                                          });    const data = await response.json();
 
     if (data.error) {
       throw new Error(data.error);
@@ -44,7 +49,7 @@ async function fetchData_1() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://13.53.212.117/get_scores_1', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_1', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,7 +85,7 @@ async function fetchData_2() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://13.53.212.117/get_scores_2', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -116,7 +121,7 @@ async function fetchData_3() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://13.53.212.117/get_scores_3', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_3', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -150,7 +155,7 @@ async function fetchData_4() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://13.53.212.117/get_scores_4', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_4', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -184,7 +189,7 @@ async function fetchData_5() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://13.53.212.117/get_scores_5', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_5', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -218,7 +223,7 @@ async function fetchData_6() {
       return { labels: [], values: [] };
     }
 
-    const response = await fetch('http://13.53.212.117/get_scores_6', {
+    const response = await fetch('http://13.60.64.199:5001/get_scores_6', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

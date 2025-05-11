@@ -22,7 +22,7 @@ $organizationEmail = isset($_SESSION['organization_email']) ? $_SESSION['organiz
         <p>Please enter and confirm your new password below</p>
 
         <!-- Password Reset Form -->
-        <form action="../../backend/actions/forgot_password.php" method="POST" class="email-form">
+        <form action="http://13.60.64.199:8080/actions/forgot_password.php" method="POST" class="email-form">
             <div class="email-card-inputs">
                 <input type="password" placeholder="New Password" name="new_password" required>
                 <input type="password" placeholder="Confirm Password" name="confirm_new_password" required>

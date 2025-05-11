@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
   
       //   fetch(`../../backend/actions/search.php?q=${encodeURIComponent(query)}`)
-      fetch('http://localhost:8080/actions/search.php?q=' + encodeURIComponent(query))
+      fetch('http://13.60.64.199:8080/actions/search.php?q=' + encodeURIComponent(query))
             .then(response => response.json())
             .then(data => {
                 suggestionsContainer.innerHTML = "";
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
                     suggestionsContainer.appendChild(suggestionItem);
                 });
-  
+
                 const rect = inputElement.getBoundingClientRect();
                 suggestionsContainer.style.position = "absolute";
                 suggestionsContainer.style.left = `${rect.left}px`;
