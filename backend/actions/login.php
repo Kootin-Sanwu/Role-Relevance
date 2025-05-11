@@ -13,6 +13,10 @@ include_once "../functions/send_OTP.php";
 // Include the predict function
 include_once "../functions/predict.php"; 
 
+$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
+$mlapi_url = getenv("ML_API_URL") ?: "http://localhost:5000";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION['signing_in'] = "signing_in";
@@ -43,20 +47,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
 
-            $stmt = $pdo->prepare("SELECT OrganizationID, Password FROM Organizations WHERE Email = :Email");
+            $stmt = $pdo->prepare("SELECT OrganizationID, Password, Name FROM Organizations WHERE Email = :Email");
             $stmt->bindParam(":Email", $organizationEmail, PDO::PARAM_STR);
             $stmt->execute();
-
+    
             if ($stmt->rowCount() === 1) {
                 $row = $stmt->fetch();
-
+    
                 if (password_verify($password, $row['Password'])) {
-
                     $_SESSION['OrganizationID'] = $row['OrganizationID'];
                     $_SESSION['organization_email'] = $organizationEmail;
-                    $_SESSION['organization_name'] = $row['Name']; // Store organization name here
+                    $_SESSION['organization_name'] = $row['Name'];
 
-                    $organizationID = $_SESSION["OrganizationID"]; // Ensure this is set
+                    setcookie("organization_name", $_SESSION['organization_name'], time() + 3600, "/", "localhost", false, true);
+                    setcookie("organization_id", $_SESSION['OrganizationID'], time() + 3600, "/", "localhost", false, true);
+                    setcookie("organization_email", $_SESSION['organization_email'], time() + 3600, "/", "localhost", false, true);
+
+                    $organizationID = $_SESSION["OrganizationID"];
 
                     if (!$organizationID) {
                         die("Error: OrganizationID is not set.");
@@ -84,7 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         'Organizationid: ' . $organizationID  
                     ];
 
-                    $ch = curl_init('http://13.53.212.117:5000/get_scores_1');
+                    // $ch = curl_init('http://127.0.0.1:5000/get_scores_1');
+                    $ch = curl_init("$mlapi_url/get_scores_1");
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
                     curl_setopt($ch, CURLOPT_POST, true);
@@ -93,48 +101,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $response = curl_exec($ch);
                     curl_close($ch);
 
-                    echo $organizationID;
-                    echo $response;  // Return API response to the frontend
+                    // echo $organizationID;
+                    // echo $response;
 
                     // Redirect to OTP verification
                     $message = "Successfully signed in. Kindly check your email for the OTP.";
-                    header("Location: ../../frontend/views/verify_otp.php?msg=" . urlencode($message));
+                    header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode($message));
                     exit();
                 } else {
 
-                    header("Location: ../../frontend/views/login.php?msg=" . urlencode('Invalid Email or Password.'));
+                    header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid Email or Password.'));
                     exit();
                 }
             } else {
 
-                header("Location: ../../frontend/views/login.php?msg=" . urlencode('Invalid email or password.'));
+                header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid email or password.'));
                 exit();
             }
         } catch (PDOException $e) {
 
-            header("Location: ../../frontend/views/login.php?msg=Database error: " . $e->getMessage());
+            header("Location: $frontend_url/views/login.php?msg=Database error: " . $e->getMessage());
             exit();
         }
     } else {
 
-        header("Location: ../../frontend/views/login.php?msg=" . urlencode(implode(" ", $errors)));
+        header("Location: $frontend_url/views/login.php?msg=" . urlencode(implode(" ", $errors)));
         exit();
     }
 } else if (isset($_GET['msg'])) {
 
     $message = $_GET['msg'];
 
-    // $organizationName = $_SESSION['organization_name'];
-
     if ($message === "signing_in") {
 
-        header("Location: ../../frontend/views/metrics.php");
+        $organizationName = urlencode($_SESSION['organization_name']);
+        header("Location: $frontend_url/views/metrics.php?organization_name=$organizationName");
     } else {
 
         echo "The message is: " . htmlspecialchars($message);
     }
 }
  else {
-    header("Location: ../../frontend/views/login.php?msg=" . urlencode('Invalid request method.'));
+    header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid request method.'));
     exit();
 };

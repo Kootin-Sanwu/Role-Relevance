@@ -19,6 +19,9 @@ include_once "../functions/approval.php";
 // Include the approval notification function
 include_once "../functions/notify.php";
 
+$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $errors = [];
@@ -35,21 +38,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate required fields
     if (empty($organizationEmail) || empty($password) || empty($confirmPassword)) {
 
-        header("Location: ../../frontend/views/login.php?msg=" . urlencode("All fields must be filled"));
+        // header("Location: ../../frontend/views/login.php?msg=" . urlencode("All fields must be filled"));
+        // exit();
+
+        header("Location: $frontend_url/views/login.php?msg=" . urlencode("All fields must be filled"));
         exit();
     }
 
     // Validate email format
     if (!filter_var($organizationEmail, FILTER_VALIDATE_EMAIL)) {
 
-        header("Location: ../../frontend/views/login.php?msg=Please enter a valid email address.");
+        header("Location: $frontend_url/views/login.php?msg=Please enter a valid email address.");
         exit();
     }
 
     // Check if passwords match
     if ($password !== $confirmPassword) {
 
-        header("Location: ../../frontend/views/login.php?msg=Passwords do not match.");
+        header("Location: $frontend_url/views/login.php?msg=" . urlencode("Passwords do not match."));
         exit();
     }
 
@@ -57,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $passwordRegex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
     if (!preg_match($passwordRegex, $password)) {
 
-        header("Location: ../../frontend/views/login.php?msg=Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+        header("Location: $frontend_url/views/login.php?msg=Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
         exit();
     }
 
@@ -69,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->rowCount() > 0) {
 
-            header("Location: ../../frontend/views/login.php?msg=Email already exists. Please use a different email.");
+            header("Location: $frontend_url/views/login.php?msg=" . urlencode("Email already exists. Please use a different email."));
             exit();
         }
 
@@ -79,12 +85,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $_SESSION['hashed_password'] = $hashedPassword;
 
+        if (headers_sent($file, $line)) {
+            echo "Headers already sent in $file on line $line";
+            exit();
+        }
+        
         // header("Location: ../views/details.php");
-        header("Location: ../../frontend/views/subject.php");
+        header("Location: $frontend_url/views/subject.php");
         exit();
     } catch (PDOException $e) {
 
-        header("Location: ../../frontend/views/login.php?msg=Database error: " . $e->getMessage());
+        header("Location: $frontend_url/views/login.php?msg=Database error: " . $e->getMessage());
         exit();
     }
 } else if (isset($_GET['msg'])) {
@@ -107,11 +118,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             notifyAdmin($adminEmail, $organizationEmail, $adminApprovalLink, $adminDeclineLink);
 
             // Redirect with success message
-            header("Location: ../../frontend/views/login.php?msg=" . urlencode("Your registration request has been sent for approval."));
+            header("Location: $frontend_url/views/login.php?msg=" . urlencode("Your registration request has been sent for approval."));
             exit();
         } catch (PDOException $e) {
             // Redirect with database error message
-            header("Location: ../../frontend/views/login.php?msg=" . urlencode("Database error: " . $e->getMessage()));
+            header("Location: $frontend_url/views/login.php?msg=" . urlencode("Database error: " . $e->getMessage()));
             exit();
         }
     } else {

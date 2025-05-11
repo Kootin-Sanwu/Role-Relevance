@@ -10,7 +10,7 @@
 <div class="job-card">
     <h1>Organisation's Details</h1>
     <p>Enter the details of available job roles in your organization.</p>
-    <form action="../../backend/actions/subject.php" method="POST" class="job-form">
+    <form action="http://localhost:8080/actions/subject.php" method="POST" class="job-form">
       <div class="job-card-inputs">
         <label for="org-name">Organization Name</label>
         <input type="text" id="org-name" name="organization_name" required>

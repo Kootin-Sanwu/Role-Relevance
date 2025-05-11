@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-require '../../vendor/autoload.php';
+require '../vendor/autoload.php';
 
 function sendPredictionRequest($endpoint, $organizationID) {
     if (!$organizationID) {

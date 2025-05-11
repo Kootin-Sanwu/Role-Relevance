@@ -22,7 +22,7 @@ session_start();
         <p>A code has been sent to your email address</p>
 
         <!-- OTP Form -->
-        <form action="../../backend/actions/verify_otp.php" method="POST" class="otp-form">
+        <form action="http://localhost:8080/actions/verify_otp.php" method="POST" class="otp-form">
             <div class="otp-card-inputs">
                 <?php for ($i = 0; $i < 6; $i++): ?>
                     <input type="text" name="OTP[]" maxlength="1" oninput="moveToNext(this)" <?php echo $i === 0 ? 'autofocus' : ''; ?>>
@@ -30,8 +30,8 @@ session_start();
             </div>
 
             <p>Didn't get the OTP?
-                <a href="../actions/resend_otp.php" id="resend">Resend</a>
-            </p>
+                <!-- <a href="../actions/resend_otp.php" id="resend">Resend</a> -->
+                <a href="http://localhost:8080/actions/resend_otp.php" id="resend">Resend</a>
             </p>
 
             <button type="submit">VERIFY</button>

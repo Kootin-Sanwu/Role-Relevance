@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Include PHPMailer
-require '../../vendor/autoload.php';
+require '../vendor/autoload.php';
 
 // Function to generate and send OTP
 function sendOTP($organizationEmail, $OTP)

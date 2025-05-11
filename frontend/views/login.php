@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="icon" href="https://www.google.com/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="../../backend/actions/register.php" method="POST">
+            <!-- <form action="../../backend/actions/register.php" method="POST"> -->
+            <form action="http://localhost:8080/actions/register.php" method="POST">
                 <h1>Create Account</h1>
                 <div class="infield">
                     <input type="email" placeholder="Organization Email" name="organization_email" />
@@ -33,7 +35,8 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="../../backend/actions/login.php" method="POST">
+            <!-- <form action="../../backend/actions/login.php" method="POST"> -->
+            <form action="http://localhost:8080/actions/login.php" method="POST">
                 <h1>Sign in</h1>
                 <div class="infield">
                     <input type="email" placeholder="Organization Email" name="organization_email" required/>

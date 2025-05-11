@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
                     suggestionsContainer.appendChild(suggestionItem);
                 });
-  
+
                 const rect = inputElement.getBoundingClientRect();
                 suggestionsContainer.style.position = "absolute";
                 suggestionsContainer.style.left = `${rect.left}px`;

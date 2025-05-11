@@ -2,6 +2,9 @@
 // Start the session
 session_start();
 
+$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
+
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Capture the organization name and description from the form
@@ -13,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['organization_description'] = $organizationDescription;
 
     // For debugging purposes (optional)
-    echo "Organization Name: " . $_SESSION['organization_name'] . "<br>";
-    echo "Organization Description: " . $_SESSION['organization_description'] . "<br>";
+    // echo "Organization Name: " . $_SESSION['organization_name'] . "<br>";
+    // echo "Organization Description: " . $_SESSION['organization_description'] . "<br>";
 
     // Redirect or send a success response after storing the session data
-    header('Location: ../../frontend/views/details.php');  // Redirect to a success page (you can create this page)
+    header("Location: $frontend_url/views/details.php");  // Redirect to a success page (you can create this page)
     exit();
 }
 ?>

@@ -1,18 +1,29 @@
 <?php
-require_once '../../backend/settings/connection.php'; // for $pdo
-session_start();
-
-$organizationID = $_SESSION['OrganizationID'] ?? null;
+$organizationID = $_COOKIE['organization_id'] ?? null;
 
 if (!$organizationID) {
     echo "<p>Unauthorized access. Please log in.</p>";
     exit;
 }
 
-// Fetch roles for the organization
-$stmt = $pdo->prepare("SELECT JobRoleID, RoleName, RoleDescription FROM JobRoles WHERE OrganizationID = :orgID");
-$stmt->execute([':orgID' => $organizationID]);
-$roles = $stmt->fetchAll();
+$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
+$backend_url = getenv("BACKEND_URL") ?: "http://backend";
+
+$apiUrl = "$backend_url/actions/get_org_info.php?organization_id=" . urlencode($organizationID);
+$response = file_get_contents($apiUrl);
+
+if ($response === false) {
+    echo "<p>Failed to connect to backend.</p>";
+    exit;
+}
+
+$roles = json_decode($response, true);
+
+if (!is_array($roles)) {
+    echo "<p>Invalid data received.</p>";
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +43,7 @@ $roles = $stmt->fetchAll();
     <?php if (count($roles) === 0): ?>
       <p><strong>No roles found.</strong></p>
     <?php else: ?>
-    <form action="../../backend/actions/details.php" method="POST" class="job-form">
+    <form action="http://localhost:8080/actions/details.php" method="POST" class="job-form">
       <input type="hidden" name="removing" value="Role Deletion Request" />
 
       <div class="job-card-inputs">

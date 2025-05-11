@@ -4,6 +4,9 @@ FROM php:8.2-apache
 # Set working directory
 WORKDIR /var/www/html
 
+# Install PHP extensions needed for DB connection
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
 # Copy frontend code into the container
 COPY frontend/ /var/www/html/
 
