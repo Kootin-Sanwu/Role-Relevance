@@ -13,8 +13,8 @@ include_once "../functions/send_OTP.php";
 // Include the predict function
 include_once "../functions/predict.php";
 
-$frontend_url = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
+// http://13.60.64.199:3000 = getenv("FRONTEND_URL") ?: "http://13.60.64.199:3000";
+// $backend_url = getenv("BACKEND_URL") ?: "http://13.60.64.199:8080";
 $mlapi_url = getenv("ML_API_URL") ?: "http://13.60.64.199:5000";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -106,26 +106,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     // Redirect to OTP verification
                     $message = "Successfully signed in. Kindly check your email for the OTP.";
-                    header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode($message));
+                    header("Location: http://13.60.64.199:3000/views/verify_otp.php?msg=" . urlencode($message));
                     exit();
                 } else {
 
-                    header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid Email or Password.'));
+                    header("Location: http://13.60.64.199:3000/views/login.php?msg=" . urlencode('Invalid Email or Password.'));
                     exit();
                 }
             } else {
 
-                header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid email or password.'));
+                header("Location: http://13.60.64.199:3000/views/login.php?msg=" . urlencode('Invalid email or password.'));
                 exit();
             }
         } catch (PDOException $e) {
 
-            header("Location: $frontend_url/views/login.php?msg=Database error: " . $e->getMessage());
+            header("Location: http://13.60.64.199:3000/views/login.php?msg=Database error: " . $e->getMessage());
             exit();
         }
     } else {
 
-        header("Location: $frontend_url/views/login.php?msg=" . urlencode(implode(" ", $errors)));
+        header("Location: http://13.60.64.199:3000/views/login.php?msg=" . urlencode(implode(" ", $errors)));
         exit();
     }
 } else if (isset($_GET['msg'])) {
@@ -135,12 +135,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($message === "signing_in") {
 
         $organizationName = urlencode($_SESSION['organization_name']);
-        header("Location: $frontend_url/views/metrics.php?organization_name=$organizationName");
+        header("Location: http://13.60.64.199:3000/views/metrics.php?organization_name=$organizationName");
     } else {
 
         echo "The message is: " . htmlspecialchars($message);
     }
 } else {
-    header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid request method.'));
+    header("Location: http://13.60.64.199:3000/views/login.php?msg=" . urlencode('Invalid request method.'));
     exit();
 };
